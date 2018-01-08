@@ -5,3 +5,5 @@ scikit-learn
 numpy
 ipython
 scipy
+ast
+re
