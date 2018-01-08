@@ -137,3 +137,5 @@ venv.bak/
 # modules.xml
 # .idea/misc.xml 
 # *.ipr
+
+/debug
