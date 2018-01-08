@@ -1,6 +1,8 @@
 import os
 import settings
 import pandas as pd
+import ast
+import re
 
 def read_data():
     df = pd.read_excel(os.path.join(settings.PROCESSED_DIR, "all.xls"), encoding="ISO-8859-1")
@@ -47,9 +49,12 @@ def parse_ratings(x, label):
     else:
         return 0
 
-
 def count_audience_reaction(x, term):
     return x.count(term)
+
+def drop_rows_with_conversations():
+    return df[df['conversation'] == 0]
+
 
 def create_new_columns():
     # Create columns from ratings
@@ -63,6 +68,9 @@ def create_new_columns():
 def remove_parenthetical(x):
     return re.sub("([\(\[]).*?([\)\]])", "\g<1>\g<2>", x)
 
+def write():
+    df.to_excel(os.path.join(settings.PROCESSED_DIR, "all_with_reaction.xls"), encoding="ISO-8859-1")
+
 
 
 if __name__ == "__main__":
@@ -73,10 +81,13 @@ if __name__ == "__main__":
     df = drop_no_transcript()
     # Removes the Q and A session from end of transcripts
     df['transcript'] = df['transcript'].apply(trim_q_and_a, args=('(Applause)Chris Anderson:', 10))
-    df['transcript'] = df['trim_transcript'].apply(trim_q_and_a, args=('(Applause) Chris Anderson:', 10))
+    df['transcript'] = df['transcript'].apply(trim_q_and_a, args=('(Applause) Chris Anderson:', 10))
+
     ## Reimport dataframe after cleaning transcript and adding 2 new columns manually
     df = pd.read_excel(os.path.join(settings.PROCESSED_DIR, "all_with_transcript_edited.xls"), encoding="ISO-8859-1")
+    df = drop_rows_with_conversations()
     df = create_new_columns()
     df['transcript'] = df['transcript'].apply(remove_parenthetical)
+    write()
 
 
