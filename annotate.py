@@ -68,9 +68,33 @@ def create_new_columns():
 def remove_parenthetical(x):
     return re.sub("([\(\[]).*?([\)\]])", "\g<1>\g<2>", x)
 
+
+def divide_transcript_into_halves(x, n):
+    list_x = x.split(" ")
+    mid=int((len(list_x) + 1) / 2)
+    if n == 1:
+        return ' '.join(list_x[:mid])
+    if n == 2:
+        return ' '.join(list_x[mid:])
+    return None
+
+def divide_transcript_into_thirds(x, n):
+    list_x = x.split(" ")
+    first_third=int((len(list_x) + 1) / 3)
+    third_third= 2 * first_third
+    if n == 1:
+        return ' '.join(list_x[:first_third])
+    if n == 3:
+        return ' '.join(list_x[third_third:])
+    return None
+
+def segment_transcript():
+    df['transcript_1sthalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(1,))
+    df['transcript_2ndhalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(2,))
+    return df
+
 def write():
     df.to_excel(os.path.join(settings.PROCESSED_DIR, "all_with_reaction.xls"), encoding="ISO-8859-1")
-
 
 
 if __name__ == "__main__":
@@ -88,6 +112,7 @@ if __name__ == "__main__":
     df = drop_rows_with_conversations()
     df = create_new_columns()
     df['transcript'] = df['transcript'].apply(remove_parenthetical)
+    df = segment_transcript()
     write()
 
 
