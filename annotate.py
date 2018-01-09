@@ -100,13 +100,29 @@ def divide_transcript_into_thirds(x, n):
         return ' '.join(list_x[third_third:])
     return None
 
+def divide_transcript_into_quarters(x, n):
+    list_x = x.split(" ")
+    first_q=int((len(list_x) + 1) / 4)
+    second_q = first_q * 2
+    third_q = first_q * 3
+    if n == 1:
+        return ' '.join(list_x[:first_q])
+    elif n == 2:
+        return ' '.join(list_x[first_q:second_q])
+    elif n == 3:
+        return ' '.join(list_x[second_q:third_q])
+    elif n == 4:
+        return ' '.join(list_x[third_q:])
+    return None
+
 
 def segment_transcript():
     df['transcript_1sthalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(1,))
     df['transcript_2ndhalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(2,))
-    df['transcript_1st_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(1,))
-    df['transcript_2nd_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(2,))
-    df['transcript_3rd_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(3,))
+    df['transcript_1q'] = df['transcript'].apply(divide_transcript_into_quarters, args=(1,))
+    df['transcript_2q'] = df['transcript'].apply(divide_transcript_into_quarters, args=(2,))
+    df['transcript_3q'] = df['transcript'].apply(divide_transcript_into_quarters, args=(3,))
+    df['transcript_4q'] = df['transcript'].apply(divide_transcript_into_quarters, args=(4,))
     return df
 
 def write():
