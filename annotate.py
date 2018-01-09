@@ -88,10 +88,25 @@ def divide_transcript_into_halves(x, n):
         return ' '.join(list_x[mid:])
     return None
 
+def divide_transcript_into_thirds(x, n):
+    list_x = x.split(" ")
+    first_third=int((len(list_x) + 1) / 3)
+    third_third= 2 * first_third
+    if n == 1:
+        return ' '.join(list_x[:first_third])
+    elif n == 2:
+        return ' '.join(list_x[first_third:third_third])
+    elif n == 3:
+        return ' '.join(list_x[third_third:])
+    return None
+
 
 def segment_transcript():
     df['transcript_1sthalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(1,))
     df['transcript_2ndhalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(2,))
+    df['transcript_1st_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(1,))
+    df['transcript_2nd_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(2,))
+    df['transcript_3rd_third'] = df['transcript'].apply(divide_transcript_into_thirds, args=(3,))
     return df
 
 def write():
