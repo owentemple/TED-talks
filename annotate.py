@@ -55,6 +55,9 @@ def count_audience_reaction(x, term):
 def drop_rows_with_conversations():
     return df[df['conversation'] == 0]
 
+def drop_rows_with_music():
+    return df[df['music'] == 0]
+
 
 def create_new_columns():
     # Create columns from ratings
@@ -64,6 +67,13 @@ def create_new_columns():
     df['applause'] = df['transcript'].apply(count_audience_reaction, args=('(Applause)',))
     df['laughter'] = df['transcript'].apply(count_audience_reaction, args=('(Laughter)',))
     return df
+
+def normalize_for_views():
+    df['norm_persuasive'] = df['persuasive'] / df['views']
+    df['norm_inspiring'] = df['inspiring'] / df['views']
+    df['norm_unconvincing'] = df['unconvincing'] / df['views']
+    return df
+
 
 def remove_parenthetical(x):
     return re.sub("([\(\[]).*?([\)\]])", "\g<1>\g<2>", x)
@@ -78,15 +88,6 @@ def divide_transcript_into_halves(x, n):
         return ' '.join(list_x[mid:])
     return None
 
-def divide_transcript_into_thirds(x, n):
-    list_x = x.split(" ")
-    first_third=int((len(list_x) + 1) / 3)
-    third_third= 2 * first_third
-    if n == 1:
-        return ' '.join(list_x[:first_third])
-    if n == 3:
-        return ' '.join(list_x[third_third:])
-    return None
 
 def segment_transcript():
     df['transcript_1sthalf'] = df['transcript'].apply(divide_transcript_into_halves, args=(1,))
@@ -110,7 +111,11 @@ if __name__ == "__main__":
     ## Reimport dataframe after cleaning transcript and adding 2 new columns manually
     df = pd.read_excel(os.path.join(settings.PROCESSED_DIR, "all_with_transcript_edited.xls"), encoding="ISO-8859-1")
     df = drop_rows_with_conversations()
+    df = drop_rows_with_music()
     df = create_new_columns()
+    df = normalize_for_views()
+
+
     df['transcript'] = df['transcript'].apply(remove_parenthetical)
     df = segment_transcript()
     write()
