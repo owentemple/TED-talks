@@ -139,6 +139,5 @@ venv.bak/
 # *.ipr
 
 /debug
-*.xls
-/processed
+
 
