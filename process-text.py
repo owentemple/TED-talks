@@ -23,6 +23,7 @@ def create_published_year():
     df['published_dt'] = pd.to_datetime(df['published_date'],unit='s')
     df['published_year'] = df['published_dt'].dt.year
     del df['published_dt']
+    del df['published_date_dt']
     return df
 
 def create_moral_category_from_subsets():
