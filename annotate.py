@@ -126,7 +126,7 @@ def segment_transcript():
     return df
 
 def write():
-    df.to_excel(os.path.join(settings.PROCESSED_DIR, "all_with_reaction.xls"), encoding="ISO-8859-1")
+    df.to_excel(os.path.join(settings.PROCESSED_DIR, "all_after_annotate.xls"), encoding="ISO-8859-1")
 
 
 if __name__ == "__main__":

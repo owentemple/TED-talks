@@ -7,8 +7,8 @@ def read_data():
     return df
 
 def calculate_sentiment_change_by_halves():
-    df['posemo_change_h'] = df['posemo2'] - df['posemo1']
-    df['negemo_change_h'] = df['negemo2'] - df['negemo1']
+    df['posemo_change_h'] = df['posemo_2h'] - df['posemo_1h']
+    df['negemo_change_h'] = df['negemo_2h'] - df['negemo_1h']
     df['affect_change_h'] = df['posemo_change_h'] + df['negemo_change_h']
     return df
 
@@ -22,6 +22,7 @@ def create_published_year():
     df['published_date_dt'] = pd.to_datetime(df['published_date'])
     df['published_dt'] = pd.to_datetime(df['published_date'],unit='s')
     df['published_year'] = df['published_dt'].dt.year
+    del df['published_dt']
     return df
 
 def create_moral_category_from_subsets():
@@ -30,7 +31,6 @@ def create_moral_category_from_subsets():
     df['Purity'] = df['PurityVirtue'] + df['PurityVice']
     df['Ingroup'] = df['IngroupVirtue'] + df['IngroupVice']
     df['Authority'] = df['AuthorityVirtue'] + df['AuthorityVice']
-
     return df
 
 
