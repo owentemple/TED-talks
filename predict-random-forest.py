@@ -17,7 +17,6 @@ def create_test_set(df):
     X_train, X_test, y_train, y_test = train_test_split(df[predictors], df[settings.TARGET], random_state = 42)
     return X_train, X_test, y_train, y_test
 
-
 def compute_error(target, predictions):
     return mean_squared_error(target, predictions)
 
