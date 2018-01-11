@@ -1,7 +1,7 @@
 DATA_DIR = "data"
 PROCESSED_DIR = "processed"
 CV_FOLDS = 3
-TARGET = "norm_inspiring"
+TARGET = "views"
 NON_PREDICTORS = [TARGET,
                   'index',
  'comments',
@@ -27,7 +27,6 @@ NON_PREDICTORS = [TARGET,
  'inspiring',
  'unconvincing',
  'applause',
- 'laughter',
  'norm_persuasive',
  'norm_inspiring',
  'norm_unconvincing',
@@ -37,10 +36,6 @@ NON_PREDICTORS = [TARGET,
  'transcript_2q',
  'transcript_3q',
  'transcript_4q',
- 'Analytic',
- 'Clout',
- 'Authentic',
- 'Tone',
  'WPS',
  'Sixltr',
  'function',
