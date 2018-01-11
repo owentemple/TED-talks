@@ -9,13 +9,13 @@ def read_data():
 def calculate_sentiment_change_by_halves():
     df['posemo_change_h'] = df['posemo_2h'] - df['posemo_1h']
     df['negemo_change_h'] = df['negemo_2h'] - df['negemo_1h']
-    df['affect_change_h'] = df['posemo_change_h'] + df['negemo_change_h']
+    df['affect_change_h'] = df['posemo_change_h'] - df['negemo_change_h']
     return df
 
 def calculate_sentiment_change_by_quarters():
     df['posemo_change_q'] = df['posemo_4q'] - df['posemo_1q']
     df['negemo_change_q'] = df['negemo_4q'] - df['negemo_1q']
-    df['affect_change_q'] = df['posemo_change_q'] + df['negemo_change_q']
+    df['affect_change_q'] = df['posemo_change_q'] - df['negemo_change_q']
     return df
 
 # This function increases the magnitude of the normed features to assist interpretability
