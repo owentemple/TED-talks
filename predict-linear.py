@@ -17,14 +17,13 @@ def cross_validate(train):
 
     predictors = train.columns.tolist()
     predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
-
+    print("Predictors: {}".format(predictors))
     predictions = cross_validation.cross_val_predict(clf, train[predictors], train[settings.TARGET], cv=settings.CV_FOLDS)
+
     return predictions
 
 def compute_error(target, predictions):
     return mean_squared_error(target, predictions)
-
-
 
 
 if __name__ == "__main__":
