@@ -1,7 +1,7 @@
 DATA_DIR = "data"
 PROCESSED_DIR = "processed"
 CV_FOLDS = 3
-TARGET = "norm_persuasive"
+TARGET = "persuasive"
 NON_PREDICTORS = [TARGET,'index',
  'comments',
  'description',
