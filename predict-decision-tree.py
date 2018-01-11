@@ -21,22 +21,22 @@ def create_test_set(df):
 def compute_error(target, predictions):
     return mean_squared_error(target, predictions)
 
-def sort_important_features(X_train, y_train):
+def sort_important_features(df):
     dt = DecisionTreeRegressor()
     predictors = df.columns.tolist()
     predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
-    dt.fit(X_train, y_train)
-    predictions = dt.predict(X_train)
+    dt.fit(df[predictors], df[settings.TARGET])
+    predictions = dt.predict(df[predictors])
     results = {name: score for name, score in zip(predictors, dt.feature_importances_)}
     sorted_results = sorted(results.items(), key=operator.itemgetter(1), reverse=True)
     print(sorted_results)
-    accuracy = dt.score(X_train, y_train)
+    accuracy = dt.score(df[predictors], df[settings.TARGET])
     print("Accuracy: {}".format(accuracy))
 
 
 if __name__ == "__main__":
     df = read_data()
     X_train, X_test, y_train, y_test = create_test_set(df)
-    sort_important_features(X_train, y_train)
+    sort_important_features(df)
     #error = compute_error(train[settings.TARGET], predictions)
     #print("Mean Squared Error: {}".format(error))
