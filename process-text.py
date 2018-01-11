@@ -18,6 +18,13 @@ def calculate_sentiment_change_by_quarters():
     df['affect_change_q'] = df['posemo_change_q'] + df['negemo_change_q']
     return df
 
+# This function increases the magnitude of the normed features to assist interpretability
+def scale_up_normed_features():
+    df['norm_persuasive'] = df['norm_persuasive'] * 1000000
+    df['norm_inspiring'] = df['norm_inspiring'] * 1000000
+    df['norm_unconvincing'] = df['norm_unconvincing'] * 1000000
+    return df
+
 def create_published_year():
     df['published_date_dt'] = pd.to_datetime(df['published_date'])
     df['published_dt'] = pd.to_datetime(df['published_date'],unit='s')
@@ -44,6 +51,7 @@ if __name__ == "__main__":
     df = read_data()
     df = calculate_sentiment_change_by_halves()
     df = calculate_sentiment_change_by_quarters()
+    df = scale_up_normed_features()
     df = create_published_year()
     df = create_moral_category_from_subsets()
     write()
