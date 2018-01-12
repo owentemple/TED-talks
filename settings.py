@@ -1,7 +1,7 @@
 DATA_DIR = "data"
 PROCESSED_DIR = "processed"
 CV_FOLDS = 3
-TARGET = "views"
+TARGET = "applause"
 NON_PREDICTORS = [TARGET,
                   'index',
  'comments',
@@ -53,5 +53,6 @@ NON_PREDICTORS = [TARGET,
  'OtherP',
  'published_year',
  'Dic',
- 'WC']
+ 'WC',
+ 'laughter']
 
