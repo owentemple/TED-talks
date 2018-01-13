@@ -4,6 +4,7 @@ import csv
 from datetime import datetime
 import time
 from random import randint
+import json
 
 
 # specify the urls of the talks metadata to gather
@@ -86,4 +87,4 @@ def gather_metadata(urls):
     write_it(data)
 
 if __name__ == "__main__":
-    gather_metadata()
+    gather_metadata(urls)
