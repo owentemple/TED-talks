@@ -1,7 +1,7 @@
 DATA_DIR = "data"
 PROCESSED_DIR = "processed"
 CV_FOLDS = 3
-TARGET = "applause"
+TARGET = "norm_inspiring"
 
 NON_PREDICTORS_GLOBAL = [
             TARGET,
@@ -56,7 +56,8 @@ NON_PREDICTORS_GLOBAL = [
             'Quote',
             'Apostro',
             'Parenth',
-            'OtherP']
+            'OtherP',
+            'laughter']
 
 
 NON_PREDICTORS_LING = [
@@ -487,9 +488,6 @@ NON_PREDICTORS_MORAL = [
             'negemo_change_q',
             'affect_change_q',
             'published_year']
-
-
-
 
 
 
