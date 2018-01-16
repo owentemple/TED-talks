@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+Theodore -- Welcome
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1>Welcome</h1>
+            <p>Theodore is a TED Talk Recommendation service.</p>
+        </header>
+        <section>
+            <h2>Recently Added</h2>
+            {% if new_bookmarks %}
+                <ul>
+                    {% for bm in new_bookmarks %}
+                        <li>{{ bm.user }} added <a href="{{ bm.url }}">{{ bm.url }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                No bookmarks yet.
+            {% endif %}
+        </section>
+        <section>
+            <h2>article section h2</h2>
+            <h1>{{ title }}</h1>
+                <div class="dtable">
+                    <div style="display: table-row;">
+                        <div class="d_cell">
+                            <h2>Find Similar TED Talk</h2>
+                            <p>
+                                The purpose of this app is to display a TED Talk that is
+                                very similar in linguistic and content features to the Talk you enter.
+                                Put a TED Talk speaker's name in the field below, and have it find a similar talk.
+                            </p>
+                            <form action="{{ url_for('analyze_text') }}" method="post">
+                                <textarea name="text1" cols="30" rows="5"></textarea>
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <div class="d_cell">
+                            <h2>Results</h2>
+                            <div id="results">
+                                {% if data is not none %}
+                                {{ data }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </article>
+{% endblock %}
