@@ -5,11 +5,21 @@ import settings
 import pandas as pd
 import numpy as np
 from scipy.spatial import distance
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+from nltk.stem.snowball import SnowballStemmer
 
 app = Flask(__name__)
 
 bookmarks = []
 app.config['SECRET_KEY'] = '+\xb3N\xc0\xe90A\x8d1Lv\x87\x13\xf8\xecY\xd8k@ur\xb1MC'
+
+stemmer = SnowballStemmer('english')
+class StemmedCountVectorizer(CountVectorizer):
+    def build_analyzer(self):
+        analyzer = super(StemmedCountVectorizer, self).build_analyzer()
+        return lambda doc: ([stemmer.stem(w) for w in analyzer(doc)])
 
 def store_bookmark(url):
     bookmarks.append(dict(
@@ -33,6 +43,25 @@ def find_similar_speaker(df, name):
     rec_idx = euclidean_distances[euclidean_distances == second_smallest_value].index
     return df[['main_speaker', 'description','url' ]].iloc[rec_idx]
 
+def fit_classifier(df):
+    persuasive_median = df['norm_persuasive'].median()
+    df['persuasive_label'] = np.where(df['persuasive'] >= persuasive_median, 1, 0)
+    count_vect = StemmedCountVectorizer(analyzer="word", stop_words='english', min_df=2)
+    X_train_counts = count_vect.fit_transform(df['transcript'])
+    tfidf_transformer = TfidfTransformer()
+    X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+    clf = MultinomialNB().fit(X_train_tfidf, df['persuasive_label'])
+    return clf, count_vect, tfidf_transformer
+
+def predict_new(clf, count_vect, tfidf_transformer,speech):
+    new_counts = count_vect.transform([speech])
+    X_new_tfidf = tfidf_transformer.transform(new_counts)
+    prediction = clf.predict(X_new_tfidf)
+    probability = clf.predict_proba(X_new_tfidf)
+
+    return prediction[0], probability[0][1]
+
+
 
 
 def new_bookmarks(num):
@@ -55,6 +84,14 @@ def analyze_text():
             data.append(value)
     print(data)
     return render_template('index.html', data=data)
+
+@app.route('/predict_text', methods=['POST'])
+def predict_text():
+    df = read_data()
+    speech = request.form['text2']
+    clf, count_vect, tfidf_transformer = fit_classifier(df)
+    result = predict_new(clf, count_vect, tfidf_transformer, speech)
+    return render_template('index.html', result=result)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():

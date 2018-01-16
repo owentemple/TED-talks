@@ -23,7 +23,6 @@ Theodore -- Welcome
             {% endif %}
         </section>
         <section>
-            <h2>article section h2</h2>
             <h1>{{ title }}</h1>
                 <div class="dtable">
                     <div style="display: table-row;">
@@ -54,6 +53,42 @@ Theodore -- Welcome
                                             <td>{{item}}</td>
                                         </tr>
                                         {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section>
+            <h1>{{ title }}</h1>
+                <div class="dtable">
+                    <div style="display: table-row;">
+                        <div class="d_cell">
+                            <h2>Predict Persuasiveness of Text</h2>
+                            <p>
+                                The purpose of this app is to predict the persuasiveness of a text.
+                                Put the text of a speech in the field below, and have it predict whether it is persuasive.
+                            </p>
+                            <form action="{{ url_for('predict_text') }}" method="post">
+                                <textarea name="text2" cols="30" rows="5"></textarea>
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <div class="d_cell">
+                            <h2>Results</h2>
+                            <div id="results">
+                                {% if result is not none %}
+                                <table>
+                                    <tbody>
+                                        <thead>
+                                            <th>Persuasive Prediction</th>
+                                        </thead>
+                                        <tr>
+                                            <td>{{result}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 {% endif %}

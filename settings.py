@@ -54,6 +54,5 @@ NON_PREDICTORS = [
             'Quote',
             'Apostro',
             'Parenth',
-            'OtherP',
-            'laughter']
+            'OtherP']
 
