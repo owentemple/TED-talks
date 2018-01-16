@@ -31,7 +31,7 @@ def find_similar_speaker(df, name):
     euclidean_distances = df_normalized.apply(lambda row: distance.euclidean(row, speaker_normalized), axis=1)
     second_smallest_value = euclidean_distances.nsmallest(2).iloc[1]
     rec_idx = euclidean_distances[euclidean_distances == second_smallest_value].index
-    return df[['main_speaker', 'url' ]].iloc[rec_idx]
+    return df[['main_speaker', 'description','url' ]].iloc[rec_idx]
 
 
 
@@ -48,7 +48,11 @@ def analyze_text():
     df = read_data()
     name = request.form['text1']
     single_df = find_similar_speaker(df, name)
-    data = single_df.to_html()
+    data = []
+    data.append(single_df['main_speaker'])
+    data.append(single_df['description'])
+    data.append(single_df['url'])
+    print(data)
     return render_template('index.html', data=data)
 
 @app.route('/add', methods=['GET', 'POST'])

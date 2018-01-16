@@ -44,7 +44,22 @@ Theodore -- Welcome
                             <h2>Results</h2>
                             <div id="results">
                                 {% if data is not none %}
-                                {{ data }}
+                                <table>
+                                    <tbody>
+                                        <thead>
+                                            <th>Entity</th>
+                                            <th>Start Token</th>
+                                            <th>Stop Token</th>
+                                        </thead>
+                                        {% for item in data %}
+                                        <tr>
+                                            <td>{{item}}</td>
+                                            <td>{{item}}</td>
+                                            <td>{{item}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                                 {% endif %}
                             </div>
                         </div>
