@@ -55,7 +55,7 @@ def fit_classifier(df):
     clf = MultinomialNB().fit(X_train_tfidf, df['persuasive_label'])
     return clf, count_vect, tfidf_transformer
 
-def predict_new(clf, count_vect, tfidf_transformer,speech):
+def predict_new(clf, count_vect, tfidf_transformer, speech):
     new_counts = count_vect.transform([speech])
     X_new_tfidf = tfidf_transformer.transform(new_counts)
     prediction = clf.predict(X_new_tfidf)
@@ -92,9 +92,10 @@ def analyze_text():
 @app.route('/predict_text', methods=['POST'])
 def predict_text():
     speech = request.form['text2']
+    clf, count_vect, tfidf_transformer = fit_classifier(df)
     result = predict_new(clf, count_vect, tfidf_transformer, speech)
     message = "Persuasive" if result[0] == 1 else "Not Persuasive"
-    percentage = str(round(result[1] * 100,2)) + "% Probability"
+    percentage = str(round(result[1] * 100,2)) + "% Probability of Persuasive Rating"
     return render_template('index.html', message=message, percentage=percentage)
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -115,7 +116,7 @@ def server_error(e):
     return render_template('500.html'), 500
 
 df = read_data()
-clf, count_vect, tfidf_transformer = fit_classifier(df)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
