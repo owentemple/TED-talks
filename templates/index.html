@@ -8,7 +8,7 @@ Theodore -- Welcome
     <article>
         <header>
             <h1>Welcome</h1>
-            <p>Theodore Speaks is a TED Talks insights service.</p>
+            <p>Theodore Speaks is a TED Talks insights web app.</p>
         </header>
         <section>
             <h2>Recently Added</h2>
@@ -22,7 +22,7 @@ Theodore -- Welcome
                 No bookmarks yet.
             {% endif %}
         </section>
-                <section>
+                <div>
             <h1>{{ title }}</h1>
                 <div class="dtable">
                     <div style="display: table-row;">
@@ -31,11 +31,38 @@ Theodore -- Welcome
                             <p>
                                 Theodore Speaks about TED Talks
                             </p>
-                            <p>
-                                Ask Theodore about TED. The purpose of this app is to understand (and emulate) the content and linguistic style of highly persuasive talks.
-                            </p>
-                        <div class='tableauPlaceholder' id='viz1516146589590' style='position: relative'><noscript><a href='#'><img alt='Persuasive Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;PersuasiveDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TED_2&#47;PersuasiveDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;PersuasiveDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1516146589590');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-                        </div>
+                            <select class="div-toggle" data-target=".dashboard">
+                                <option value="persuasive" data-show=".persuasive">Persuasive</option>
+                                <option value="inspiring" data-show=".inspiring">Inspiring</option>
+                                <option value="views" data-show=".views">Views</option>
+                                <option value="moral" data-show=".moral">Moral</option>
+                            </select>
+                            <div class="dashboard">
+                            <div class="persuasive hide">
+                                <p>
+                                    Ask Theodore about TED. The purpose of this app is to understand (and emulate) the content and linguistic style of highly persuasive talks.
+                                </p>
+                                <div class='tableauPlaceholder' id='viz1516146589590' style='position: relative'><noscript><a href='#'><img alt='Persuasive Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;PersuasiveDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TED_2&#47;PersuasiveDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;PersuasiveDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1516146589590');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                            </div>
+                            <div class="inspiring hide">
+                                <p>
+                                    Ask Theodore about TED. The purpose of this app is to understand (and emulate) the content and linguistic style of highly inspiring talks.
+                                </p>
+                                <div class='tableauPlaceholder' id='viz1516162945746' style='position: relative'><noscript><a href='#'><img alt='Inspiring Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;InspiringDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TED_2&#47;InspiringDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;InspiringDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1516162945746');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                            </div>
+                            <div class="views hide">
+                                <p>
+                                    Ask Theodore about TED. The purpose of this app is to understand (and emulate) the content and linguistic style of highly viewed talks.
+                                </p>
+                                <div class='tableauPlaceholder' id='viz1516160128509' style='position: relative'><noscript><a href='#'><img alt='Views Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;ViewsDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TED_2&#47;ViewsDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;ViewsDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1516160128509');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                            </div>
+                            <div class="moral hide">
+                                <p>
+                                    Ask Theodore about TED. The purpose of this app is to understand the content of moral isssues in talks.
+                                </p>
+                                <div class='tableauPlaceholder' id='viz1516160561153' style='position: relative'><noscript><a href='#'><img alt='Moral Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;MoralDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TED_2&#47;MoralDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TE&#47;TED_2&#47;MoralDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1516160561153');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                            </div>
+                            </div>
                     </div>
                 </div>
         </section>

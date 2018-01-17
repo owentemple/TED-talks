@@ -23,8 +23,8 @@
                 <nav>
                     <ul>
                         <li><a href="{{ url_for('add') }}">Add URL</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Sign in</a></li>
+                        <li><a href="https://data.world/owentemple/text-and-content-features-of-most-persuasive-ted-talks/">Project on data.world</a></li>
+                        <li><a href="https://github.com/owentemple/TED-talks">GitHub Repo</a></li>
                     </ul>
                 </nav>
             </header>
@@ -47,12 +47,23 @@
 
 
                 {%  block content %}
+
                 {%  endblock %}
 
                 {%block sidebar %}
                     <aside>
-                        <h3>aside</h3>
-                        <p>Lorem ipsum dolor sit</p>
+                        <h3>Talk Like TED</h3>
+                        <p>More Persuasive Talks Use:</p>
+                        <ul>
+                            <li>Risk Words: danger, doubt</li>
+                            <li>Negate Words: no, not, never</li>
+                            <li>Moral Words - care, fair, loyal</li>
+                            <li>Money - audit, cash, owe</li>
+                            <li>Quantifiers - few, many, much</li>
+                            <li>Negative Emotion - hurt, ugly, nasty</li>
+                            <li>Question Words - how, when, what</li>
+                            <li>Focus Present - today, is, now</li>
+                        </ul>
                     </aside>
                 {% endblock %}
 
@@ -68,6 +79,17 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"><\/script>')</script>
+        <script>
+            $(document).on('change', '.div-toggle', function() {
+              var target = $(this).data('target');
+              var show = $("option:selected", this).data('show');
+              $(target).children().addClass('hide');
+              $(show).removeClass('hide');
+            });
+            $(document).ready(function(){
+                $('.div-toggle').trigger('change');
+            });
+        </script>
 
         <script src="../static/js/main.js"></script>
     </body>
