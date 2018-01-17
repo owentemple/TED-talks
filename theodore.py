@@ -120,6 +120,7 @@ def index():
 
 @app.route('/analyze_text', methods=['POST'])
 def analyze_text():
+    df = read_data()
     name = request.form['text1']
     single_df = find_similar_speaker(df, name)
     result = single_df.to_dict()
