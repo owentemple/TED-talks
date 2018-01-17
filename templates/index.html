@@ -11,7 +11,7 @@ Theodore -- Welcome
             <p>Theodore Speaks is a TED Talks insights web app.</p>
         </header>
         <section>
-            <h2>Recently Added</h2>
+            <h2>Recently Added Talks</h2>
             {% if new_bookmarks %}
                 <ul>
                     {% for bm in new_bookmarks %}
@@ -29,7 +29,13 @@ Theodore -- Welcome
                         <div class="d_cell">
                             <h2>Learn How to Give More Persuasive Presentations</h2>
                             <p>
-                                Theodore Speaks about TED Talks
+                                Theodore Speaks about TED Talks.
+                            </p>
+                            <p>
+                                Choose the insights you want to see in the dashboard below.
+                            </p>
+                            <p>
+                                Select between Persuasive, Inspiring, Views and Moral Signature.
                             </p>
                             <select class="div-toggle" data-target=".dashboard">
                                 <option value="persuasive" data-show=".persuasive">Persuasive</option>
