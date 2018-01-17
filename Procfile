@@ -1,1 +1,1 @@
-web: gunicorn theodore.py
+web: gunicorn theodore:app --log-file=-

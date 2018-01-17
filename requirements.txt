@@ -6,5 +6,6 @@ numpy
 ipython
 scipy
 nltk
-flask
+Flask
 gunicorn
+xlrd >= 0.9.0
