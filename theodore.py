@@ -16,6 +16,8 @@ bookmarks = []
 app.config['SECRET_KEY'] = '+\xb3N\xc0\xe90A\x8d1Lv\x87\x13\xf8\xecY\xd8k@ur\xb1MC'
 
 stemmer = SnowballStemmer('english')
+
+
 class StemmedCountVectorizer(CountVectorizer):
     def build_analyzer(self):
         analyzer = super(StemmedCountVectorizer, self).build_analyzer()
@@ -24,7 +26,7 @@ class StemmedCountVectorizer(CountVectorizer):
 def store_bookmark(url):
     bookmarks.append(dict(
         url = url,
-        user = "reindert",
+        user = "TEDster",
         date = datetime.utcnow()
 
     ))
@@ -74,7 +76,6 @@ def index():
 
 @app.route('/analyze_text', methods=['POST'])
 def analyze_text():
-    df = read_data()
     name = request.form['text1']
     single_df = find_similar_speaker(df, name)
     result = single_df.to_dict()
@@ -82,16 +83,19 @@ def analyze_text():
     for k,v in result.items():
         for key, value in v.items():
             data.append(value)
-    print(data)
-    return render_template('index.html', data=data)
+    speaker_name = data[0]
+    description = data[1]
+    url_rx = data[2]
+
+    return render_template('index.html', speaker_name=speaker_name, description=description, url_rx=url_rx)
 
 @app.route('/predict_text', methods=['POST'])
 def predict_text():
-    df = read_data()
     speech = request.form['text2']
-    clf, count_vect, tfidf_transformer = fit_classifier(df)
     result = predict_new(clf, count_vect, tfidf_transformer, speech)
-    return render_template('index.html', result=result)
+    message = "Persuasive" if result[0] == 1 else "Not Persuasive"
+    percentage = str(round(result[1] * 100,2)) + "% Probability"
+    return render_template('index.html', message=message, percentage=percentage)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -110,7 +114,11 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 
+df = read_data()
+clf, count_vect, tfidf_transformer = fit_classifier(df)
+
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
