@@ -7,8 +7,20 @@ Theodore -- Welcome
 {% block content %}
     <article>
         <header>
-            <h1>Welcome</h1>
-            <p>Theodore Speaks is a TED Talks insights web app.</p>
+            <h1>Theodore Speaks about TED Talks</h1>
+            <p>Learn to communicate better from the most persuasive speakers in the world with tools and insights from the Theodore Speaks web app.</p>
+            <p>
+                Choose the insights you want to see in the dashboard below.
+            </p>
+            <p>
+                Select between Persuasive, Inspiring, Views and Moral Signature.
+            </p>
+            <select class="div-toggle" data-target=".dashboard">
+                <option value="persuasive" data-show=".persuasive">Persuasive</option>
+                <option value="inspiring" data-show=".inspiring">Inspiring</option>
+                <option value="views" data-show=".views">Views</option>
+                <option value="moral" data-show=".moral">Moral</option>
+            </select>
         </header>
         <section>
             <h2>Recently Added Talks</h2>
@@ -27,26 +39,15 @@ Theodore -- Welcome
                 <div class="dtable">
                     <div style="display: table-row;">
                         <div class="d_cell">
-                            <h2>Learn How to Give More Persuasive Presentations</h2>
+                            <h2>Learn How to Give More Persuasive, Inspiring or Engaging Presentations</h2>
                             <p>
-                                Theodore Speaks about TED Talks.
+                                Push the play button in the player below to get in the mood to present:
                             </p>
                             <audio controls>
                                 <source src="../static/TED-applause.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
-                            <p>
-                                Choose the insights you want to see in the dashboard below.
-                            </p>
-                            <p>
-                                Select between Persuasive, Inspiring, Views and Moral Signature.
-                            </p>
-                            <select class="div-toggle" data-target=".dashboard">
-                                <option value="persuasive" data-show=".persuasive">Persuasive</option>
-                                <option value="inspiring" data-show=".inspiring">Inspiring</option>
-                                <option value="views" data-show=".views">Views</option>
-                                <option value="moral" data-show=".moral">Moral</option>
-                            </select>
+
                             <div class="dashboard">
                             <div class="persuasive hide">
                                 <p>
