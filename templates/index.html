@@ -4,10 +4,7 @@
 Theodore -- Welcome
 {% endblock %}
 {% block content %}
-    <aside class="dashboard">
-
-
-        <div class="persuasive hide">
+    <aside >
             <h3>Talk Like TED</h3>
              <p>
                  Push the play button in the player below to get in the mood to present:
@@ -16,6 +13,8 @@ Theodore -- Welcome
                 <source src="../static/TED-applause.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
             </audio>
+        <div class="dashboard">
+        <div class="persuasive hide">
         <p>More Persuasive Talks Use:</p>
         <ul>
             <li>Risk Words: danger, doubt</li>
@@ -29,15 +28,8 @@ Theodore -- Welcome
             <li>Less "I" Words: me, my, I</li>
         </ul>
         </div>
+
         <div class="inspiring hide">
-            <h3>Talk Like TED</h3>
-             <p>
-                 Push the play button in the player below to get in the mood to present:
-             </p>
-            <audio controls>
-                <source src="../static/TED-applause.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
         <p>More Inspiring Talks Use:</p>
         <ul>
             <li>Sad Words in the 2nd Quarter - crying, grief, sad</li>
@@ -52,14 +44,6 @@ Theodore -- Welcome
         </ul>
         </div>
         <div class="views hide">
-            <h3>Talk Like TED</h3>
-             <p>
-                 Push the play button in the player below to get in the mood to present:
-             </p>
-            <audio controls>
-                <source src="../static/TED-applause.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
         <p>More Highly Viewed Talks Use:</p>
         <ul>
             <li>Anxiety Words in 3rd Quarter - worried, fearful</li>
@@ -72,14 +56,6 @@ Theodore -- Welcome
         </ul>
         </div>
         <div class="moral hide">
-            <h3>Talk Like TED</h3>
-             <p>
-                 Push the play button in the player below to get in the mood to present:
-             </p>
-            <audio controls>
-                <source src="../static/TED-applause.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
         <p>Moral Dimensions in Talks:</p>
         <ul>
             <li>Moral Words have increased in TED Talks over time</li>
@@ -87,6 +63,7 @@ Theodore -- Welcome
             <li>More Religion Words in Inspiring Talks - altar, church</li>
             <li>Less Ingroup Vice Words in Highly Viewed Talks - terrorist, disloyal</li>
         </ul>
+        </div>
         </div>
     </aside>
     <article>
@@ -158,11 +135,12 @@ Theodore -- Welcome
                 <div class="dtable">
                     <div style="display: table-row;">
                         <div class="d_cell">
-                            <h2>Find Similar TED Talk</h2>
+                            <h2>Find Similar TED Talk Speaker</h2>
                             <p>
-                                The purpose of this tool is to display a TED Talk that uses Euclidean distance to find a talk that is
-                                very similar in linguistic and content features to the speaker full name you enter.
-                                Put a TED Talk speaker's name in the field below, and have it find a similar talk.
+                                The purpose of this tool is to find a talk that is
+                                similar in linguistic style and content to a speaker you specify.
+                                It uses an embedded Euclidean distance calculation to determine similarity.
+                                Put a TED Talk speaker's name in the field below, and the tool will find a similar talk.
                             </p>
                             <form action="{{ url_for('analyze_text') }}" method="post">
                                 <textarea name="text1" cols="30" rows="5"></textarea>
@@ -211,6 +189,7 @@ Theodore -- Welcome
                                         </thead>
                                         <tr>
                                             <td>{{message}}</td>
+                                            <td>&nbsp;</td>
                                             <td>{{percentage}}</td>
                                         </tr>
                                     </tbody>
