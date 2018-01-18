@@ -84,18 +84,22 @@ def dump_model(clf, count_vect, tfidf_transformer):
     pass
 
 def load_model():
+    my_dir = os.path.dirname(__file__)
+    multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
+    vectorizer_pkl_filename = 'vectorizer_20180117.pkl'
+    tfidf_pkl_filename = 'tfidf_20180117.pkl'
     # Loading the saved multinomial model pickle
-    multinomial_model_pkl = open(multinomial_pkl_filename, 'rb')
+    multinomial_model_pkl = open(os.path.join(my_dir, multinomial_pkl_filename), 'rb')
     clf = pickle.load(multinomial_model_pkl)
     print("Loaded Multinomial model :: ", clf)
 
     # Loading the saved vectorizer model pickle
-    vectorizer_model_pkl = open(vectorizer_pkl_filename, 'rb')
+    vectorizer_model_pkl = open(os.path.join(my_dir,vectorizer_pkl_filename), 'rb')
     count_vect = pickle.load(vectorizer_model_pkl)
     print("Loaded Vectorizer model :: ", count_vect)
 
     # Loading the saved tfidf model pickle
-    tfidf_model_pkl = open(tfidf_pkl_filename, 'rb')
+    tfidf_model_pkl = open(os.path.join(my_dir,tfidf_pkl_filename), 'rb')
     tfidf_transformer = pickle.load(tfidf_model_pkl)
     print("Loaded TFIDF model :: ", tfidf_transformer)
     return clf, count_vect, tfidf_transformer
@@ -137,8 +141,9 @@ def analyze_text():
 @app.route('/predict_text', methods=['POST'])
 def predict_text():
     speech = request.form['text2']
+    clf, count_vect, tfidf_transformer = load_model()
     result = predict_new(clf, count_vect, tfidf_transformer, speech)
-    message = "Persuasive" if result[0] == 1 else "Not Persuasive"
+    message = "PERSUASIVE - " if result[0] == 1 else "NOT PERSUASIVE - "
     percentage = str(round(result[1] * 100,2)) + "% Probability of Persuasive Rating"
     return render_template('index.html', message=message, percentage=percentage)
 
@@ -159,20 +164,20 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 
-
-
+#when need to fit and dump a new model, uncomment 3 lines below and run ```python theodore.py```
+#df = read_data()
+#clf, count_vect, tfidf_transformer = fit_classifier(df)
+#dump_model(clf, count_vect, tfidf_transformer)
 
 if __name__ == "__main__":
-    multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
-    vectorizer_pkl_filename = 'vectorizer_20180117.pkl'
-    tfidf_pkl_filename = 'tfidf_20180117.pkl'
-    clf, count_vect, tfidf_transformer = load_model()
+    # multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
+    # vectorizer_pkl_filename = 'vectorizer_20180117.pkl'
+    # tfidf_pkl_filename = 'tfidf_20180117.pkl'
+    # clf, count_vect, tfidf_transformer = load_model()
     app.run(debug=True)
 
-    # move the code below up and above app.run, then run ```python theodore.py``` to fit and dump a new model
-    #df = read_data()
-    #clf, count_vect, tfidf_transformer = fit_classifier(df)
-    #dump_model(clf, count_vect, tfidf_transformer)
+
+
 
 
 
