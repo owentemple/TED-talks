@@ -165,9 +165,9 @@ def server_error(e):
     return render_template('500.html'), 500
 
 #when need to fit and dump a new model, uncomment 3 lines below and run ```python theodore.py```
-#df = read_data()
-#clf, count_vect, tfidf_transformer = fit_classifier(df)
-#dump_model(clf, count_vect, tfidf_transformer)
+# df = read_data()
+# clf, count_vect, tfidf_transformer = fit_classifier(df)
+# dump_model(clf, count_vect, tfidf_transformer)
 
 if __name__ == "__main__":
     # multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
