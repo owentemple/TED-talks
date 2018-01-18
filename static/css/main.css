@@ -198,8 +198,11 @@ article.flashes {
   display: none;
 }
 
-
-
+div.solid {
+    border-style: solid;
+    padding: 1.25em;
+    font-weight: bold;
+}
 
 
 
