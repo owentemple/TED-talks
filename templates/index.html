@@ -10,7 +10,7 @@ Theodore -- Welcome
                  Push the play button in the player below to get in the mood to present:
              </p>
             <audio controls>
-                <source src="../static/TED-applause.mp3" type="audio/mpeg">
+                <source type="audio/mpeg" src="{{ url_for('static', filename='TED-applause.mp3') }}">
                     Your browser does not support the audio element.
             </audio>
         <div class="dashboard">
