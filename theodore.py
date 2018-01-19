@@ -8,8 +8,10 @@ import pickle
 from scipy.spatial import distance
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
+
 from sklearn.naive_bayes import MultinomialNB
 from nltk.stem.snowball import SnowballStemmer
+
 
 app = Flask(__name__)
 
@@ -46,8 +48,9 @@ def find_similar_speaker(df, name):
     rec_idx = euclidean_distances[euclidean_distances == second_smallest_value].index
     return df[['main_speaker', 'description','url' ]].iloc[rec_idx]
 
-# The fit classifier is only run manually when updating classifier model
+# The fit classifier function below is only run manually from the __main__ when I need to refit the classifier model
 def fit_classifier(df):
+    from theodore import StemmedCountVectorizer
     persuasive_median = df['norm_persuasive'].median()
     df['persuasive_label'] = np.where(df['persuasive'] >= persuasive_median, 1, 0)
     count_vect = StemmedCountVectorizer(analyzer="word", stop_words='english', min_df=2)
@@ -55,9 +58,7 @@ def fit_classifier(df):
     tfidf_transformer = TfidfTransformer()
     X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
     clf = MultinomialNB().fit(X_train_tfidf, df['persuasive_label'])
-    return clf, count_vect, tfidf_transformer
 
-def dump_model(clf, count_vect, tfidf_transformer):
     # Dump the trained multinomial classifier with Pickle
     multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
     # Open the file to save as pkl file
@@ -81,36 +82,21 @@ def dump_model(clf, count_vect, tfidf_transformer):
     pickle.dump(tfidf_transformer, tfidf_model_pkl)
     # Close the pickle instances
     tfidf_model_pkl.close()
-    pass
-
-def load_model():
-    my_dir = os.path.dirname(__file__)
-    multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
-    vectorizer_pkl_filename = 'vectorizer_20180117.pkl'
-    tfidf_pkl_filename = 'tfidf_20180117.pkl'
-    # Loading the saved multinomial model pickle
-    multinomial_model_pkl = open(os.path.join(my_dir, multinomial_pkl_filename), 'rb')
-    clf = pickle.load(multinomial_model_pkl)
-    print("Loaded Multinomial model :: ", clf)
-
-    # Loading the saved vectorizer model pickle
-    vectorizer_model_pkl = open(os.path.join(my_dir,vectorizer_pkl_filename), 'rb')
-    count_vect = pickle.load(vectorizer_model_pkl)
-    print("Loaded Vectorizer model :: ", count_vect)
-
-    # Loading the saved tfidf model pickle
-    tfidf_model_pkl = open(os.path.join(my_dir,tfidf_pkl_filename), 'rb')
-    tfidf_transformer = pickle.load(tfidf_model_pkl)
-    print("Loaded TFIDF model :: ", tfidf_transformer)
     return clf, count_vect, tfidf_transformer
 
 
-def predict_new(clf, count_vect, tfidf_transformer, speech):
+def predict_new(speech):
+    with open('vectorizer_20180117.pkl', 'rb') as f1:
+        # from tokenize_new import StemmedCountVectorizer
+        count_vect = pickle.load(f1)
+    with open('multinomial_classifier_20180117.pkl', 'rb') as f2:
+        clf = pickle.load(f2)
+    with open('tfidf_20180117.pkl', 'rb') as f3:
+        tfidf_transformer = pickle.load(f3)
     new_counts = count_vect.transform([speech])
     X_new_tfidf = tfidf_transformer.transform(new_counts)
     prediction = clf.predict(X_new_tfidf)
     probability = clf.predict_proba(X_new_tfidf)
-
     return prediction[0], probability[0][1]
 
 
@@ -135,14 +121,12 @@ def analyze_text():
     speaker_name = data[0]
     description = data[1]
     url_rx = data[2]
-
     return render_template('index.html', speaker_name=speaker_name, description=description, url_rx=url_rx)
 
 @app.route('/predict_text', methods=['POST'])
 def predict_text():
     speech = request.form['text2']
-    clf, count_vect, tfidf_transformer = load_model()
-    result = predict_new(clf, count_vect, tfidf_transformer, speech)
+    result = predict_new(speech)
     message = "PERSUASIVE - " if result[0] == 1 else "NOT PERSUASIVE - "
     percentage = str(round(result[1] * 100,2)) + "% Probability of Persuasive Rating"
     return render_template('index.html', message=message, percentage=percentage)
@@ -164,16 +148,18 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 
-#when need to fit and dump a new model, uncomment 3 lines below and run ```python theodore.py```
+
+# When you need to fit and dump a new model, uncomment the 3 lines below and then run ```python theodore.py```
+# Then shutdown the server, comment out the 2 lines below, and then rerun ```python theodore.py```
+#
 # df = read_data()
 # clf, count_vect, tfidf_transformer = fit_classifier(df)
 # dump_model(clf, count_vect, tfidf_transformer)
 
+
+
+
 if __name__ == "__main__":
-    # multinomial_pkl_filename = 'multinomial_classifier_20180117.pkl'
-    # vectorizer_pkl_filename = 'vectorizer_20180117.pkl'
-    # tfidf_pkl_filename = 'tfidf_20180117.pkl'
-    # clf, count_vect, tfidf_transformer = load_model()
     app.run(debug=True)
 
 
