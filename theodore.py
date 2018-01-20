@@ -120,7 +120,8 @@ def analyze_text():
             data.append(value)
     speaker_name = data[0]
     description = data[1]
-    url_rx = data[2]
+    # change url subdomain to 'embed' so that video will appear embedded
+    url_rx = "https://embed" + data[2][11:]
     return render_template('index.html', speaker_name=speaker_name, description=description, url_rx=url_rx)
 
 @app.route('/predict_text', methods=['POST'])
