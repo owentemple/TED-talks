@@ -48,7 +48,6 @@ Theodore Speaks - Public Speaking Insights
             <li>We - we, us, our</li>
             <li>Social - mate, talk, they</li>
             <li>Less Assent Words- agree, OK, yes</li>
-            <li>Less "I" Words: me, my, I</li>
         </ul>
         </div>
         <div class="views hide">
@@ -59,8 +58,6 @@ Theodore Speaks - Public Speaking Insights
             <li>You - you, your</li>
             <li>Laughter</li>
             <li>Positive Emotion - love, nice, sweet</li>
-            <li>Less Ingroup Vice Words - terrorist, disloyal</li>
-            <li>Less Assent Words: agree, OK, yes</li>
         </ul>
         </div>
         <div class="moral hide">
@@ -143,39 +140,6 @@ Theodore Speaks - Public Speaking Insights
                 <div class="dtable">
                     <div style="display: table-row;">
                         <div class="d_cell">
-                            <h2>Find Similar TED Talk Speaker</h2>
-                            <p>
-                                The purpose of this tool is to find a talk that is
-                                similar in linguistic style and content to a speaker you specify.
-                                It uses an embedded Euclidean distance calculation to determine similarity.
-                                Put a TED Talk speaker's name in the field below, and the tool will find a similar talk.
-                            </p>
-                            <form action="{{ url_for('analyze_text') }}" method="post">
-                                <textarea name="text1" cols="30" rows="5"></textarea>
-                                <input type="submit">
-                            </form>
-                        </div>
-
-                        <div class="d_cell">
-                            <h2>Results</h2>
-                            <div id="results">
-                                {% if data is not none %}
-                                            <h3>Talk with Most Similar Linguistic Style and Content</h3>
-                                            <p>{{ speaker_name }}</p>
-                                            <p>{{ description }}</p>
-                                            <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="{{ url_rx }}" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
-                                            <a href="{{ url_rx }}">{{url_rx}}</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <section>
-            <h1>{{ title }}</h1>
-                <div class="dtable">
-                    <div style="display: table-row;">
-                        <div class="d_cell">
                             <h2>Predict Persuasiveness of Text</h2>
                             <p>
                                 The purpose of this tool is to predict the persuasiveness of a text. It uses an embedded Multinomial Naive Bayes classifier.
@@ -203,6 +167,38 @@ Theodore Speaks - Public Speaking Insights
                                         </tr>
                                     </tbody>
                                 </table>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section>
+            <h1>{{ title }}</h1>
+                <div class="dtable">
+                    <div style="display: table-row;">
+                        <div class="d_cell">
+                            <h2>Find Similar TED Talk Speaker</h2>
+                            <p>
+                                The purpose of this tool is to find a talk that is
+                                similar in linguistic style and content to a speaker you specify.
+                                It uses an embedded Euclidean distance calculation to determine similarity.
+                                Put a TED Talk speaker's name in the field below, and the tool will find a similar talk.
+                            </p>
+                            <form action="{{ url_for('analyze_text') }}" method="post">
+                                <textarea name="text1" cols="30" rows="5"></textarea>
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <div class="d_cell">
+                            <h2>Results</h2>
+                            <div id="results">
+                                {% if data is not none %}
+                                            <h3>Talk with Most Similar Linguistic Style and Content</h3>
+                                            <p>{{ speaker_name }}</p>
+                                            <p>{{ description }}</p>
+                                            <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="{{ url_rx }}" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
                                 {% endif %}
                             </div>
                         </div>
