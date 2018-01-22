@@ -19,13 +19,15 @@
             <header>
 
             <h1 class="wrapper clearfix">
-                <img class="app-title" src="{{ url_for('static', filename='images/theodore-logo.png') }}">
-                <a href="{{ url_for('index') }}"><h1 class="title app-title">Insights from TED Talks</h1></a>
+                <div class="app-title">
+                    <img src="{{ url_for('static', filename='images/theodore-logo.png') }}">
+                    <a href="{{ url_for('index') }}"><h1 class="title">Insights from TED Talks</h1></a>
+                </div>
                 <nav>
                     <ul>
                         <li><a href="{{ url_for('add') }}">Add URL</a></li>
                         <li><a href="https://data.world/owentemple/text-and-content-features-of-most-persuasive-ted-talks/insights/ab4459bc-4670-4347-807e-7bd17421b307">How It Works</a></li>
-                        <li><a href="https://github.com/owentemple/TED-talks">GitHub Repo</a></li>
+                        <li><a href="https://github.com/owentemple/TED-talks">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/owentemple/">Connect</a></li>
                     </ul>
                 </nav>
