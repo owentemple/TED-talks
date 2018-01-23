@@ -41,8 +41,7 @@ For professionals who need to understand how to persuade and inspire, my product
 
 
 # Analysis methods
-
-
+Python 3, Numpy, Pandas, Beautiful Soup, Linguistic Inquiry and Word Count (LIWC), Natural Language Toolkit (NLTK), Scikit-Learn, Matplotlib, HTML, CSS, Tableau, Flask
 
 
 # Future improvements
