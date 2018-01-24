@@ -23,7 +23,7 @@ See this work as a presentation in [Google Slides](https://docs.google.com/prese
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4/0.jpg" 
 alt="Theodore Speaks - How to Persuade and Inspire Like TED" width="240" height="180" border="10" /></a>
 
-
+---
 
 # Background & Motivation
 Whether or not you ever give a TED Talk yourself, and no matter what your job title is - developer, data scientist, or recruiter - your job is ultimately to communicate and influence, so the words you say matter. Whether it's a morning stand up meeting, a training, or a conference call, you need to persuade and, sometimes, even inspire.
@@ -71,7 +71,7 @@ How they are saying it:
   - Talks that use “I, me, my” more will be less persuasive
   - Talks that use “we, us” more will be more inspiring
 
-
+---
 
 # Analysis methods
 
@@ -150,6 +150,7 @@ To find a similar TED speaker based on Euclidean distance and linguistic feature
 
 You can also access this "Find a Similar Speaker" tool by visiting [theodorespeaks.com](http://www.theodorespeaks.com), scrolling down, and inputting a speaker's full name into the text box and hitting "Submit".
 
+---
 
 # Results
 
@@ -162,30 +163,16 @@ You can also access this "Find a Similar Speaker" tool by visiting [theodorespea
 Text features that were associated with higher 'persuasive' ratings by TED.com users:
 
 ##### What You Say
-Risk Words
- - danger, doubt
- 
-Moral Words
- - care, fair, loyal
- 
-Money Words
- - audit, cash, owe
+- Risk Words - danger, doubt
+- Moral Words - care, fair, loyal
+- Money Words - audit, cash, owe
 
 ##### How You Say It
-Negative Emotion Words
- - hurt, ugly, nasty
- 
-Negate Words
- - no, not, never
- 
-Question Words
- - how, when, what
- 
-Focus on Present Words
- - today, is, now
- 
-DECREASED “I” Words 
- - me, mine, I
+- Negative Emotion Words - hurt, ugly, nasty
+- Negate Words - no, not, never
+- Question Words - how, when, what
+- Focus on Present Words - today, is, now
+- DECREASED “I” Words - me, mine, I
 
 
 ![Screen Shot 2018-01-23 at 7.06.18 PM.png](https://media.data.world/si2aLadqTqOSl2I0gPah_Screen%20Shot%202018-01-23%20at%207.06.18%20PM.png)
@@ -202,30 +189,20 @@ Consistent with a Hero's Journey framework that calls for many challenges in the
 Text features that predicted higher 'inspiring' ratings by TED.com users:
 
 ##### What You Say
-Achievement Words 
- - win, success, better
- 
-Power Words
- - superior, bully
+- Achievement Words - win, success, better
+- Power Words - superior, bully
 
 ##### How You Say It
-Sad Words in 2nd Quarter 
- - crying, grief, sad
- 
-Positive Emotion Change from Q1 to Q4
-
-"We" Words 
- - we, us, our
- 
-“I” Words
- - me, mine, I
+- Sad Words in 2nd Quarter - crying, grief, sad
+- Positive Emotion Change from Q1 to Q4
+- "We" Words  - we, us, our
+- “I” Words - me, mine, I
 
 ![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
 
 Consistent with a Hero's Journey storytelling framework, increased sad words in the 2nd quarter of talks were related to increased inspiring ratings.
 
 ![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
-
 
 
 # Future improvements
