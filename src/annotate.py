@@ -143,7 +143,7 @@ if __name__ == "__main__":
     df['transcript'] = df['transcript'].apply(trim_q_and_a, args=('(Applause)Chris Anderson:', 10))
     df['transcript'] = df['transcript'].apply(trim_q_and_a, args=('(Applause) Chris Anderson:', 10))
 
-    ## Reimport dataframe after cleaning transcript and adding 2 new columns manually
+    # Reimport dataframe after cleaning transcript and adding 2 new columns manually
     df = pd.read_excel(os.path.join('..', settings.PROCESSED_DIR, "all_with_transcript_edited.xls"), encoding="ISO-8859-1")
     df = drop_rows_with_conversations()
     df = drop_rows_with_music()

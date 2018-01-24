@@ -53,10 +53,10 @@ The [TheodoreSpeaks web app](http://www.theodorespeaks.com) uses natural languag
 ### General Hypothesis
 A more persuasive, inspiring talk is related not just to WHAT people are saying but HOW they are saying it.
 
-What people are saying
+What people are saying:
 - Content Words - job, brain, computer
 
-How they are saying it
+How they are saying it:
 - Emotion Words - happy, sad, angry
 - Function Words - I, you, we, what
 
@@ -67,6 +67,7 @@ How they are saying it
  - Talks that use positive and negative emotion words in the shape of the Hero’s Journey will be more persuasive and inspiring.
 2. Function Words
  - Socially powerful function words like "I, we, you" and "what, where, how" will be predictive of persuasive and inspiring ratings.
+ 
   - Talks that use “I, me, my” more will be less persuasive
   - Talks that use “we, us” more will be more inspiring
 
@@ -76,7 +77,7 @@ How they are saying it
 
 The tech stack consists of Python 3, Numpy, Pandas, Beautiful Soup, Linguistic Inquiry and Word Count (LIWC), Natural Language Toolkit (NLTK), Scikit-Learn, Matplotlib, HTML, CSS, Tableau, Flask, and Heroku.
 
-Two csvs, the results of the webscraping, are stored in the data directory. 
+Two ```csv``` files, the results of the webscraping, are stored in the ```data``` directory. 
 
 ```ted-main.csv``` has the metadata for 2638 TED Talks- all talks featured on TED.com from 2006 through 2017.
 ```transcripts.csv``` contains the transcripts for 2542 talks - the transcripts are not available for every talk.
@@ -94,7 +95,19 @@ From the ```src``` directory of the repo, run the following code:
 
 ```python process-text.py```
 
-Now you have a dataset with features ready for statistical models.
+These scripts: 
+- drop rows with missing transcripts
+- remove talks centered around music performances-
+- remove talks with more than 1 speaker
+- create features like 'applause', 'laughter' from transcript
+- normalize ratings counts to account for number of times the talk has been viewed
+- divide transcripts into quarters 
+
+Edits to transcripts were done by script and by hand to remove question and answer sections and conversations with multiple speakers.
+
+If structural changes to the cleaning and feature engineering are required, rerun the results of ```annotate.py```, the dataset in ```all_after_annotate.xls``` through Linguistic Inquiry and Word Count (LIWC) module to produce LIWC word category ratios. A license with LIWC is required and is available at [liwc.net](http://www.liwc.net)</a> 
+
+After running the 3 scripts above, you have a final dataset ```all_with_liwc_segmented.xls``` with features ready for statistical models (93.5 MB).
 
 
 
