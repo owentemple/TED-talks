@@ -227,8 +227,18 @@ Consistent with a Hero's Journey storytelling framework, increased sad words in 
 
 Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson, Michael Engeling, and Lee Harper for critical feedback and guidance during the development of this project.
 
+I am grateful for the experience of previous work and collaboration with James Pennebaker, Carol Ryff, Robert Lewis, Craig Fryar, Celia Fryar, and Anne Bourland. Past projects with them made this analysis feasible. 
+
 Thanks also to [Reindert-Jan Ekker](https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents) for an excellent introduction to the Flask microframework. 
 Thanks also to [Rounak Banik](https://www.kaggle.com/rounakbanik) for a well organized open dataset that I used to supplement and verify the results of my webscraping.
+
+
+# References
+
+[Pennebaker, James W. "The Secert Life of Pronouns" New Scientist. September 7, 2011.](https://www.newscientist.com/article/dn20848-the-secret-life-of-pronouns/)
+
+[James W. Pennebaker, Roger J. Booth, Ryan L. Boyd, and Martha E. Francis. Linguistic Inquiry and Word Count: LIWC2015. Operator's Manual](https://s3-us-west-2.amazonaws.com/downloads.liwc.net/LIWC2015_OperatorManual.pdf)
+
 
 # Web App
 
