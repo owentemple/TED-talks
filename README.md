@@ -15,7 +15,15 @@ __Results:__
 I found that the change in negative and positive emotion words across the talk and the speaker’s use of key social pronouns like “I” and “we” made a big impact on persuasive ratings. My analyses resulted in a few important categories of words that make up a “linguistic signature” of persuasion and a classifier that you can use to predict the persuasiveness of your own text.
 
 
-## Persuasive Ratings
+
+See this work as a presentation in [Google Slides](https://docs.google.com/presentation/d/1HuLg7flwSoy_YKFmS6S6ypa1kuKpDmKfMoaDjzYe5xc/edit?usp=sharing).
+
+[See the video](https://youtu.be/6SmLwANBp_4) of this talk.
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4/0.jpg" 
+alt="Theodore Speaks - Lightning Talk" width="240" height="180" border="10" /></a>
+
+#### Persuasive Ratings
 Text features that were associated with higher 'persuasive' ratings by TED.com users included:
 
 - Risk Words - danger, doubt
@@ -31,23 +39,15 @@ Text features that were associated with higher 'persuasive' ratings by TED.com u
 ![Screen Shot 2018-01-17 at 2.47.13 PM.png](https://media.data.world/zYJz6G60RtWLrDcCRvfM_Screen%20Shot%202018-01-17%20at%202.47.13%20PM.png)
 
 
-## Inspiring Ratings
+#### Inspiring Ratings
 
     
 
-Increased Sad Words in the 2nd Quarter of Talks w related to Increased Inspiring Ratings
+Increased Sad Words in the 2nd Quarter of Talks were related to Increased Inspiring Ratings
 
 ![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
 
 
-See this work as a presentation in [Google Slides](https://docs.google.com/presentation/d/1HuLg7flwSoy_YKFmS6S6ypa1kuKpDmKfMoaDjzYe5xc/edit?usp=sharing).
-
-[See the video](https://youtu.be/6SmLwANBp_4) of this talk.
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4/0.jpg" 
-alt="Theodore Speaks - Lightning Talk" width="240" height="180" border="10" /></a>
-
-<br clear="right">
 
 # Background & Motivation
 Whether or not you ever give a TED Talk yourself, and no matter what your job title is - developer, data scientist, or recruiter - your job is ultimately to communicate and influence, so the words you say matter. Whether it's a morning stand up meeting, a training, or a conference call, you need to persuade and, sometimes, even inspire.
