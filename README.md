@@ -96,12 +96,13 @@ From the ```src``` directory of the repo, run the following code:
 ```python process-text.py```
 
 These scripts: 
+- join large transcripts to dataframe for analysis
 - drop rows with missing transcripts
 - remove talks centered around music performances
 - remove talks with more than 1 speaker
 - create features like 'applause', 'laughter' from transcript
 - normalize ratings counts to account for number of times the talk has been viewed
-- divide transcripts into quarters
+- divide transcripts into halves and quarters
 - add results of LIWC analysis and create emotion word change features 
 
 Edits to transcripts were done by script and by hand to remove question and answer sections and conversations with multiple speakers.
@@ -139,10 +140,15 @@ To train a classifier model to predict 'persuasive' and 'non-persuasive' texts, 
 
 ```python classification.py```
 
-You can also access this classifier by visiting theodorespeaks.com, scrolling down, and inputting your own text into the text box and hitting "Submit".
+You can also access this classifier tool by visiting [theodorespeaks.com](http://www.theodorespeaks.com), scrolling down, and inputting your own text into the text box and hitting "Submit".
 The page will reload with a "Persuasive" or "Non-Persuasive" prediction with a probability beside the text box. 
 
+To find a similar TED speaker based on Euclidean distance and linguistic feature similarity to a speaker you specify,
+ change the SPEAKER_FULL_NAME variable in line 11 and run: 
 
+```python distance.py```
+
+You can also access this "Find a Similar Speaker" tool by visiting [theodorespeaks.com](http://www.theodorespeaks.com), scrolling down, and inputting a speaker's full name into the text box and hitting "Submit".
 
 
 # Results
@@ -152,7 +158,7 @@ The page will reload with a "Persuasive" or "Non-Persuasive" prediction with a p
 ![image](https://www.filepicker.io/api/file/xDcgKi5GSW2AqhsTlBzQ)
 
 
-#### Increased Persuasive Ratings
+### Increased Persuasive Ratings
 Text features that were associated with higher 'persuasive' ratings by TED.com users:
 
 ##### What You Say
@@ -178,13 +184,14 @@ Text features that were associated with higher 'persuasive' ratings by TED.com u
 
 ![Screen Shot 2018-01-23 at 7.06.18 PM.png](https://media.data.world/si2aLadqTqOSl2I0gPah_Screen%20Shot%202018-01-23%20at%207.06.18%20PM.png)
 
+
 Consistent with a Hero's Journey framework that calls for many challenges in the course of a narrative, increased use of negative emotion words like "sad, angry, depressed, frustrated" across all quarters of the talk was related to higher persuasive ratings by TED.com users.
 
 ![Screen Shot 2018-01-24 at 9.40.18 AM.png](https://media.data.world/MUjCqv3HTpuIKsmOrY28_Screen%20Shot%202018-01-24%20at%209.40.18%20AM.png)
 
 
 
-#### Increased Inspiring Ratings
+### Increased Inspiring Ratings
 
 Text features that predicted higher 'inspiring' ratings by TED.com users:
 
@@ -225,6 +232,6 @@ Thanks also to [Rounak Banik](https://www.kaggle.com/rounakbanik) for a well org
 
 # Web App
 
-Visit [www.theodorespeaks.com](http://www.theodorespeaks.com) to see visualizations and tools built from these analyses.
+Visit [theodorespeaks.com](http://www.theodorespeaks.com) to see visualizations and tools built from these analyses.
  
 
