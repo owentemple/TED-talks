@@ -162,23 +162,23 @@ You can also access this "Find a Similar Speaker" tool by visiting [theodorespea
 Text features that were associated with higher 'persuasive' ratings by TED.com users:
 
 ##### What You Say
-- Risk
+Risk Words
  - danger, doubt
-- Moral
+Moral Words
  - care, fair, loyal
-- Money
+Money Words
  - audit, cash, owe
 
 ##### How You Say It
-- Negative Emotion 
+Negative Emotion Words
  - hurt, ugly, nasty
-- Negate
+Negate Words
  - no, not, never
-- Question 
+Question Words
  - how, when, what
-- Focus on Present 
+Focus on Present Words
  - today, is, now
-- DECREASED “I” Words 
+DECREASED “I” Words 
  - me, mine, I
 
 
@@ -196,18 +196,18 @@ Consistent with a Hero's Journey framework that calls for many challenges in the
 Text features that predicted higher 'inspiring' ratings by TED.com users:
 
 ##### What You Say
-- Achievement 
+Achievement Words 
  - win, success, better
-- Power 
+Power Words
  - superior, bully
 
 ##### How You Say It
-- Sad in 2nd Quarter 
+Sad WOrds in 2nd Quarter 
  - crying, grief, sad
-- Positive Emotion Change from Q1 to Q4
-- We 
+Positive Emotion Change from Q1 to Q4
+"We" Words 
  - we, us, our
-- “I” Words
+“I” Words
  - me, mine, I
 
 ![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
