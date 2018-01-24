@@ -6,9 +6,11 @@ if module_path not in sys.path:
 import settings
 import pandas as pd
 
+
 def concatenate():
     '''
-    Create joined Excel file of TED Talk's metadata and English transcript
+    Create joined Excel file of each TED Talk's metadata and English transcript
+    and write to processed directory
     '''
     meta_df = pd.read_csv(os.path.join('..', settings.DATA_DIR, 'ted_main.csv'), encoding="ISO-8859-1")
     trans_df = pd.read_csv(os.path.join('..', settings.DATA_DIR, 'transcripts.csv'), encoding="ISO-8859-1")

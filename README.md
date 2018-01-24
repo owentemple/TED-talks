@@ -48,6 +48,12 @@ The [TheodoreSpeaks web app](http://www.theodorespeaks.com) uses natural languag
 
 ![how-it-works.png](https://media.data.world/xMzimqnhTnSgdNL8YcMe_how-it-works.png)
 
+# Hypotheses
+
+
+
+
+
 # Analysis methods
 
 The tech stack consists of Python 3, Numpy, Pandas, Beautiful Soup, Linguistic Inquiry and Word Count (LIWC), Natural Language Toolkit (NLTK), Scikit-Learn, Matplotlib, HTML, CSS, Tableau, Flask, and Heroku.
@@ -90,6 +96,7 @@ To fit a random forest regressor and see the top feature importances, run:
 To build a linear regression model with most important features from the previous steps as predictors, run:
 
 ```python predict-linear.py```
+
 
 
 To explore the 10 primary components in TED Talks using non-negative matrix factorization to perform clustering, run:
@@ -153,5 +160,8 @@ Consistent with a Hero's Journey storytelling framework, increased sad words in 
 
 # Acknowledgements
 
-Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson, Michael Engeling, and Lee Harper for great feedback and guidance during the development of this project.
+Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson, Michael Engeling, and Lee Harper for critical feedback and guidance during the development of this project.
+
+Thanks also to [Reindert-Jan Ekker](https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents) for an excellent introduction to the Flask microframework. Thanks also to Rounak Banik for a well organized open dataset that I used to supplement and verify the results of my webscraping.
+ 
 
