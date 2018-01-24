@@ -5,9 +5,10 @@ if module_path not in sys.path:
     sys.path.append(module_path)
 import settings
 import pandas as pd
-import numpy as np
 from scipy.spatial import distance
 
+# Change this variable on line 12 to any TED Speaker's full name to find a talk with a the most similar linguistic style
+SPEAKER_FULL_NAME = "Al Gore"
 
 def read_data():
     df = pd.read_excel(os.path.join('..',settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
@@ -22,10 +23,11 @@ def find_similar_speaker(name):
     euclidean_distances = df_normalized.apply(lambda row: distance.euclidean(row, speaker_normalized), axis=1)
     second_smallest_value = euclidean_distances.nsmallest(2).iloc[1]
     rec_idx = euclidean_distances[euclidean_distances == second_smallest_value].index
+    print("TED Talks similar to {}".format(SPEAKER_FULL_NAME))
     print(df[['main_speaker', 'url']].iloc[rec_idx])
     return df[['main_speaker', 'description', 'url' ]].iloc[rec_idx]
 
 
 if __name__ == "__main__":
     df = read_data()
-    find_similar_speaker("Al Gore")
+    find_similar_speaker(SPEAKER_FULL_NAME)
