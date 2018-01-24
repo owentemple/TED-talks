@@ -1,4 +1,4 @@
-<href="http://www.theodorespeaks.com"><img src="static/images/theodore-logo.png" height=70%  width=70%  alt="Insights from Persuasive TED Talks"></a>
+<a href="http://www.theodorespeaks.com"><img src="static/images/theodore-logo.png" height=70%  width=70%  alt="Insights from Persuasive TED Talks"></a>
 
 [theodorespeaks.com](http://www.theodorespeaks.com)
 
