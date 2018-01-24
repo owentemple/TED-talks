@@ -14,18 +14,31 @@ def read_data():
     return df
 
 
-def create_summary(df):
+def create_summary_persuasive(df):
     lr = LinearRegression()
-    predictors = df.columns.tolist()
-    predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
-    lr.fit(df[predictors], df[settings.TARGET])
+    predictors = ['i', 'negate','anx_1q','posemo_2q','interrog','negemo','risk', 'see', 'money', 'Moral', 'focuspresent', 'quant']
+    lr.fit(df[predictors], df['norm_persuasive'])
 
     X = df[predictors]
     X2 = sm.add_constant(X)
-    est = sm.OLS(df[settings.TARGET], X2)
+    est = sm.OLS(df['norm_persuasive'], X2)
+    est2 = est.fit()
+    print(est2.summary())
+    pass
+
+def create_summary_inspiring(df):
+    lr = LinearRegression()
+    predictors = ['we','i','social','sad_2q','relig','achieve','power', 'focusfuture', ]
+    lr.fit(df[predictors], df['norm_inspiring'])
+
+    X = df[predictors]
+    X2 = sm.add_constant(X)
+    est = sm.OLS(df['norm_inspiring'], X2)
     est2 = est.fit()
     print(est2.summary())
 
+
 if __name__ == "__main__":
     df = read_data()
-    create_summary(df)
+    create_summary_persuasive(df)
+    create_summary_inspiring(df)
