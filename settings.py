@@ -1,6 +1,6 @@
 DATA_DIR = "data"
 PROCESSED_DIR = "processed"
-TARGET = "applause"
+TARGET = "norm_persuasive"
 NON_PREDICTORS = [
             TARGET,
             'index',

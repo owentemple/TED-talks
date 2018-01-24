@@ -87,9 +87,25 @@ To fit a random forest regressor and see the top feature importances, run:
 
 ```python predict-random-forest.py```
 
-To build a linear regression with most important features from the previous steps, run:
+To build a linear regression model with most important features from the previous steps as predictors, run:
 
 ```python predict-linear.py```
+
+
+To explore the 10 primary components in TED Talks using non-negative matrix factorization to perform clustering, run:
+
+```python clustering.py``` 
+
+To train a classifier model to predict 'persuasive' and 'non-persuasive' texts, run:
+
+```python classification.py```
+
+You can also access this classifier by visiting theodorespeaks.com, scrolling down, and inputting your own text into the text box and hitting "Submit".
+The page will reload with a "Persuasive" or "Non-Persuasive" prediction with a probability beside the text box. 
+
+To use
+
+
 
 # Results
 
