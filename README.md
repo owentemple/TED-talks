@@ -77,7 +77,7 @@ Now you have a dataset with features ready for statistical models.
 
 For all the following analyses, the response variable is set in the ```settings.py``` file, on line 3, under the variable name "TARGET".
 
-For response varibles, you might choose from 'norm_persuasive', 'norm_inspiring', 'views', 'comments', or 'applause'.
+For response variables, you might choose from 'norm_persuasive', 'norm_inspiring', 'views', 'comments', or 'applause'.
 
 To fit a decision tree, and see the top feature importances, run:
 
@@ -92,6 +92,11 @@ To build a linear regression with most important features from the previous step
 ```python predict-linear.py```
 
 # Results
+
+#### Emotion Words Across All Talks
+
+![image](https://www.filepicker.io/api/file/xDcgKi5GSW2AqhsTlBzQ)
+
 
 #### Persuasive Ratings
 Text features that were associated with higher 'persuasive' ratings by TED.com users included:
