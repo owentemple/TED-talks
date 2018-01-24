@@ -21,31 +21,7 @@ See this work as a presentation in [Google Slides](https://docs.google.com/prese
 [See the video](https://youtu.be/6SmLwANBp_4) of this talk.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4/0.jpg" 
-alt="Theodore Speaks - Lightning Talk" width="240" height="180" border="10" /></a>
-
-#### Persuasive Ratings
-Text features that were associated with higher 'persuasive' ratings by TED.com users included:
-
-- Risk Words - danger, doubt
-- Negate Words - no, not, never
-- Moral Words - care, fair, loyal
-- Money - audit, cash, owe
-- Quantifiers - few, many, much
-- Negative Emotion - hurt, ugly, nasty
-- Question Words - how, when, what
-- Focus Present - today, is, now
-- Decreased "I" Word Usage  - I, me, mine
-
-![Screen Shot 2018-01-17 at 2.47.13 PM.png](https://media.data.world/zYJz6G60RtWLrDcCRvfM_Screen%20Shot%202018-01-17%20at%202.47.13%20PM.png)
-
-
-#### Inspiring Ratings
-
-    
-
-Increased Sad Words in the 2nd Quarter of Talks were related to Increased Inspiring Ratings
-
-![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
+alt="Theodore Speaks - How to Persuade and Inspire Like TED" width="240" height="180" border="10" /></a>
 
 
 
@@ -115,13 +91,38 @@ To build a linear regression with most important features from the previous step
 
 ```python predict-linear.py```
 
+# Results
+
+#### Persuasive Ratings
+Text features that were associated with higher 'persuasive' ratings by TED.com users included:
+
+- Risk Words - danger, doubt
+- Negate Words - no, not, never
+- Moral Words - care, fair, loyal
+- Money - audit, cash, owe
+- Quantifiers - few, many, much
+- Negative Emotion - hurt, ugly, nasty
+- Question Words - how, when, what
+- Focus Present - today, is, now
+- Decreased "I" Word Usage  - I, me, mine
+
+![Screen Shot 2018-01-17 at 2.47.13 PM.png](https://media.data.world/zYJz6G60RtWLrDcCRvfM_Screen%20Shot%202018-01-17%20at%202.47.13%20PM.png)
+
+
+#### Inspiring Ratings
+
+Increased Sad Words in the 2nd Quarter of Talks were related to Increased Inspiring Ratings
+
+![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
+
+
 
 # Future improvements
-
+- Further improve the online "submit a text" classifier model to increase accuracy.
+- Expand analyses to find the text features that predict more user comments online. 
 
 
 # Acknowledgements
 
 Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson, Michael Engeling, and Lee Harper for great feedback and guidance during the development of this project.
 
-# References :
