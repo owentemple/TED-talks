@@ -18,7 +18,7 @@ See this work as a presentation in [Google Slides](https://docs.google.com/prese
 
 [See the video](https://youtu.be/6SmLwANBp_4) of this talk.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4&t=12s" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4&t=12s/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6SmLwANBp_4" target="_blank"><img src="http://img.youtube.com/vi/6SmLwANBp_4/0.jpg" 
 alt="Theodore Speaks - Lightning Talk" width="240" height="180" border="10" /></a>
 
 <br clear="right">
