@@ -106,8 +106,7 @@ Text features that were associated with higher 'persuasive' ratings by TED.com u
 - Focus Present - today, is, now
 - Decreased "I" Word Usage  - I, me, mine
 
-![Screen Shot 2018-01-17 at 2.47.13 PM.png](https://media.data.world/zYJz6G60RtWLrDcCRvfM_Screen%20Shot%202018-01-17%20at%202.47.13%20PM.png)
-
+![Screen Shot 2018-01-23 at 7.06.18 PM.png](https://media.data.world/si2aLadqTqOSl2I0gPah_Screen%20Shot%202018-01-23%20at%207.06.18%20PM.png)
 
 #### Inspiring Ratings
 
@@ -120,7 +119,7 @@ Text features that predicted higher 'inspiring' ratings included:
 
 ![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
 
-Increased Sad Words in the 2nd Quarter of Talks were related to Increased Inspiring Ratings
+Consistent with a Hero's Journey storytelling framework, increased sad words in the 2nd quarter of talks were related to increased inspiring ratings.
 
 ![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
 
