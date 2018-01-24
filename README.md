@@ -97,15 +97,16 @@ From the ```src``` directory of the repo, run the following code:
 
 These scripts: 
 - drop rows with missing transcripts
-- remove talks centered around music performances-
+- remove talks centered around music performances
 - remove talks with more than 1 speaker
 - create features like 'applause', 'laughter' from transcript
 - normalize ratings counts to account for number of times the talk has been viewed
-- divide transcripts into quarters 
+- divide transcripts into quarters
+- add results of LIWC analysis and create emotion word change features 
 
 Edits to transcripts were done by script and by hand to remove question and answer sections and conversations with multiple speakers.
 
-If structural changes to the cleaning and feature engineering are required, rerun the results of ```annotate.py```, the dataset in ```all_after_annotate.xls``` through Linguistic Inquiry and Word Count (LIWC) module to produce LIWC word category ratios. A license with LIWC is required and is available at [liwc.net](http://www.liwc.net)</a> 
+If structural changes to the cleaning and feature engineering are required, rerun the results of ```annotate.py```, the dataset in ```all_after_annotate.xls```, through LIWC module to produce per document word category ratios. A license with LIWC is required and is available at [liwc.net](http://www.liwc.net)</a>.
 
 After running the 3 scripts above, you have a final dataset ```all_with_liwc_segmented.xls``` with features ready for statistical models (93.5 MB).
 
