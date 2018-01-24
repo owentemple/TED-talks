@@ -50,7 +50,25 @@ The [TheodoreSpeaks web app](http://www.theodorespeaks.com) uses natural languag
 
 # Hypotheses
 
+### General Hypothesis
+A more persuasive, inspiring talk is related not just to WHAT people are saying but HOW they are saying it.
 
+What people are saying
+- Content Words - job, brain, computer
+
+How they are saying it
+- Emotion Words - happy, sad, angry
+- Function Words - I, you, we, what
+
+
+### Sub-Hypotheses
+
+1. Emotion Words
+ - Talks that use positive and negative emotion words in the shape of the Hero’s Journey will be more persuasive and inspiring.
+2. Function Words
+ - Socially powerful function words like "I, we, you" and "what, where, how" will be predictive of persuasive and inspiring ratings.
+  - Talks that use “I, me, my” more will be less persuasive
+  - Talks that use “we, us” more will be more inspiring
 
 
 
@@ -110,7 +128,6 @@ To train a classifier model to predict 'persuasive' and 'non-persuasive' texts, 
 You can also access this classifier by visiting theodorespeaks.com, scrolling down, and inputting your own text into the text box and hitting "Submit".
 The page will reload with a "Persuasive" or "Non-Persuasive" prediction with a probability beside the text box. 
 
-To use
 
 
 
@@ -121,29 +138,56 @@ To use
 ![image](https://www.filepicker.io/api/file/xDcgKi5GSW2AqhsTlBzQ)
 
 
-#### Persuasive Ratings
-Text features that were associated with higher 'persuasive' ratings by TED.com users included:
+#### Increased Persuasive Ratings
+Text features that were associated with higher 'persuasive' ratings by TED.com users:
 
-- Risk Words - danger, doubt
-- Negate Words - no, not, never
-- Moral Words - care, fair, loyal
-- Money - audit, cash, owe
-- Quantifiers - few, many, much
-- Negative Emotion - hurt, ugly, nasty
-- Question Words - how, when, what
-- Focus Present - today, is, now
-- Decreased "I" Word Usage  - I, me, mine
+##### What You Say
+- Risk
+ - danger, doubt
+- Moral
+ - care, fair, loyal
+- Money
+ - audit, cash, owe
+
+##### How You Say It
+- Negative Emotion 
+ - hurt, ugly, nasty
+- Negate
+ - no, not, never
+- Question 
+ - how, when, what
+- Focus on Present 
+ - today, is, now
+- DECREASED “I” Words 
+ - me, mine, I
+
 
 ![Screen Shot 2018-01-23 at 7.06.18 PM.png](https://media.data.world/si2aLadqTqOSl2I0gPah_Screen%20Shot%202018-01-23%20at%207.06.18%20PM.png)
 
-#### Inspiring Ratings
+Consistent with a Hero's Journey framework that calls for many challenges in the course of a narrative, increased use of negative emotion words like "sad, angry, depressed, frustrated" across all quarters of the talk was related to higher persuasive ratings by TED.com users.
 
-Text features that predicted higher 'inspiring' ratings included:
-- Sad Words in 2nd Quarter - crying, grief, sad
-- Net Positive Change in Emotion from Quarter 1 to Quarter 4
-- I words - me, mine, I
-- We - we, us, our
+![Screen Shot 2018-01-24 at 9.40.18 AM.png](https://media.data.world/MUjCqv3HTpuIKsmOrY28_Screen%20Shot%202018-01-24%20at%209.40.18%20AM.png)
 
+
+
+#### Increased Inspiring Ratings
+
+Text features that predicted higher 'inspiring' ratings by TED.com users:
+
+##### What You Say
+- Achievement 
+ - win, success, better
+- Power 
+ - superior, bully
+
+##### How You Say It
+- Sad in 2nd Quarter 
+ - crying, grief, sad
+- Positive Emotion Change from Q1 to Q4
+- We 
+ - we, us, our
+- “I” Words
+ - me, mine, I
 
 ![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
 
@@ -154,7 +198,7 @@ Consistent with a Hero's Journey storytelling framework, increased sad words in 
 
 
 # Future improvements
-- Further improve the online "submit a text" classifier model to increase accuracy.
+- Further improve the accuracy of the online "submit a text" classifier model.
 - Expand analyses to find the text features that predict more user comments online. 
 
 
@@ -162,6 +206,11 @@ Consistent with a Hero's Journey storytelling framework, increased sad words in 
 
 Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson, Michael Engeling, and Lee Harper for critical feedback and guidance during the development of this project.
 
-Thanks also to [Reindert-Jan Ekker](https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents) for an excellent introduction to the Flask microframework. Thanks also to Rounak Banik for a well organized open dataset that I used to supplement and verify the results of my webscraping.
+Thanks also to [Reindert-Jan Ekker](https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents) for an excellent introduction to the Flask microframework. 
+Thanks also to [Rounak Banik](https://www.kaggle.com/rounakbanik) for a well organized open dataset that I used to supplement and verify the results of my webscraping.
+
+# Web App
+
+Visit [www.theodorespeaks.com](http://www.theodorespeaks.com) to see visualizations and tools built from these analyses.
  
 
