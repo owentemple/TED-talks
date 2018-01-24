@@ -111,6 +111,15 @@ Text features that were associated with higher 'persuasive' ratings by TED.com u
 
 #### Inspiring Ratings
 
+Text features that predicted higher 'inspiring' ratings included:
+- Sad Words in 2nd Quarter - crying, grief, sad
+- Net Positive Change in Emotion from Quarter 1 to Quarter 4
+- I words - me, mine, I
+- We - we, us, our
+
+
+![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
+
 Increased Sad Words in the 2nd Quarter of Talks were related to Increased Inspiring Ratings
 
 ![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
