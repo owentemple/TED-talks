@@ -6,7 +6,8 @@ if module_path not in sys.path:
 import settings
 import pandas as pd
 import operator
-
+import graphviz
+from sklearn.tree import export_graphviz
 from sklearn.tree import DecisionTreeRegressor
 
 
@@ -28,9 +29,21 @@ def sort_important_features(df):
     print("Accuracy: {}".format(accuracy))
     return model
 
+def print_tree(model):
+    # Where to save the figures
+    PROJECT_ROOT_DIR = ".."
+    IMAGES_PATH = os.path.join(PROJECT_ROOT_DIR, "images")
+    path = os.path.join(IMAGES_PATH, "Decision Tree Predicting {}".format(settings.TARGET))
+    predictors = df.columns.tolist()
+    features = [p for p in predictors if p not in settings.NON_PREDICTORS]
+    data = export_graphviz(model, out_file=None, feature_names=features)
+    graph = graphviz.Source(data)
+    graph.render(path, view=True)
+    pass
 
 if __name__ == "__main__":
     df = read_data()
     model = sort_important_features(df)
+    print_tree(model)
 
 
