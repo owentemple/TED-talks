@@ -164,20 +164,26 @@ Text features that were associated with higher 'persuasive' ratings by TED.com u
 ##### What You Say
 Risk Words
  - danger, doubt
+ 
 Moral Words
  - care, fair, loyal
+ 
 Money Words
  - audit, cash, owe
 
 ##### How You Say It
 Negative Emotion Words
  - hurt, ugly, nasty
+ 
 Negate Words
  - no, not, never
+ 
 Question Words
  - how, when, what
+ 
 Focus on Present Words
  - today, is, now
+ 
 DECREASED “I” Words 
  - me, mine, I
 
@@ -198,15 +204,19 @@ Text features that predicted higher 'inspiring' ratings by TED.com users:
 ##### What You Say
 Achievement Words 
  - win, success, better
+ 
 Power Words
  - superior, bully
 
 ##### How You Say It
-Sad WOrds in 2nd Quarter 
+Sad Words in 2nd Quarter 
  - crying, grief, sad
+ 
 Positive Emotion Change from Q1 to Q4
+
 "We" Words 
  - we, us, our
+ 
 “I” Words
  - me, mine, I
 
