@@ -222,7 +222,7 @@ Thanks also to [Rounak Banik](https://www.kaggle.com/rounakbanik) for a well org
 
 # References
 
-[Pennebaker, James W. "The Secert Life of Pronouns" New Scientist. September 7, 2011.](https://www.newscientist.com/article/dn20848-the-secret-life-of-pronouns/)
+[Pennebaker, James W. "The Secret Life of Pronouns" New Scientist. September 7, 2011.](https://www.newscientist.com/article/dn20848-the-secret-life-of-pronouns/)
 
 [James W. Pennebaker, Roger J. Booth, Ryan L. Boyd, and Martha E. Francis. Linguistic Inquiry and Word Count: LIWC2015. Operator's Manual](https://s3-us-west-2.amazonaws.com/downloads.liwc.net/LIWC2015_OperatorManual.pdf)
 
