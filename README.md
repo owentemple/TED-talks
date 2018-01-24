@@ -1,4 +1,4 @@
-<img src="static/images/theodore-logo.png" height=50%  width=50%  alt="Insights from Persuasive TED Talks">
+<href="http://www.theodorespeaks.com"><img src="static/images/theodore-logo.png" height=70%  width=70%  alt="Insights from Persuasive TED Talks"></a>
 
 [theodorespeaks.com](http://www.theodorespeaks.com)
 
@@ -13,6 +13,8 @@ A natural language processing project to reveal linguistic features that predict
 
 __Results:__
 I found that the change in negative and positive emotion words across the talk and the speaker’s use of key social pronouns like “I” and “we” made a big impact on persuasive ratings. My analyses resulted in a few important categories of words that make up a “linguistic signature” of persuasion and a classifier that you can use to predict the persuasiveness of your own text.
+
+Increased use of the
 
 See this work as a presentation in [Google Slides](https://docs.google.com/presentation/d/1HuLg7flwSoy_YKFmS6S6ypa1kuKpDmKfMoaDjzYe5xc/edit?usp=sharing).
 
@@ -58,6 +60,7 @@ Four text transcript files are also stored in the data directory. These transcri
 To prepare the dataset for analyses:
 
 From the ```src``` directory of the repo, run the following code:
+
 ```python assemble.py```
 
 ```python annotate.py```
@@ -67,17 +70,35 @@ From the ```src``` directory of the repo, run the following code:
 Now you have a dataset with features ready for statistical models.
 
 
+I fit decision trees, random forest regressors, and linear regression to find the important text features that were associated with higher 'persuasive' ratings by TED.com users.
+
+- Risk Words - danger, doubt
+- Negate Words - no, not, never
+- Moral Words - care, fair, loyal
+- Money - audit, cash, owe
+- Quantifiers - few, many, much
+- Negative Emotion - hurt, ugly, nasty
+- Question Words - how, when, what
+- Focus Present - today, is, now
+- Decreased "I" Word Usage  - I, me, mine
+
+![Screen Shot 2018-01-17 at 2.47.13 PM.png](https://media.data.world/zYJz6G60RtWLrDcCRvfM_Screen%20Shot%202018-01-17%20at%202.47.13%20PM.png)
+
+
 For all the following analyses, the response variable is set in the ```settings.py``` file, on line 3, under the variable name "TARGET".
 
 You can choose from 'norm_persuasive', 'norm_inspiring', 'views', 'comments', or 'applause'.
 
 To fit a decision tree, and see the top feature importances, run:
+
 ```python predict-decision-tree.py```
 
 To fit a random forest regressor and see the top feature importances, run:
+
 ```python predict-random-forest.py```
 
 To build a linear regression with most important features from the previous steps, run:
+
 ```python predict-linear.py```
 
 
