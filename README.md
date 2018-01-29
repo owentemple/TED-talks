@@ -4,6 +4,7 @@
 
 [__Spring 2018 Galvanize Data Science Immersive__](https://www.galvanize.com/austin)
 
+# Words of Persuasion: Text Predictors of Persuasive TED Talks
 <br><br>
 An Investigation of Persuasiveness using Natural Language Processing and Machine Learning.
 
@@ -217,6 +218,7 @@ Thanks to Joseph Gartner, Dan Rupp, Andrew Kraemer, Andy Bashford, Tyler Watson,
 I am grateful for the experience of previous work and collaboration with James Pennebaker, Carol Ryff, Robert Lewis, Craig Fryar, Celia Fryar, and Anna Bourland. Past projects with them made this analysis feasible. 
 
 Thanks also to [Reindert-Jan Ekker](https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents) for an excellent introduction to the Flask microframework. 
+Thanks to 
 Thanks also to [Rounak Banik](https://www.kaggle.com/rounakbanik) for a well organized open dataset that I used to supplement and verify the results of my webscraping.
 
 
