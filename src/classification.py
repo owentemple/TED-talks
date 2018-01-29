@@ -19,7 +19,7 @@ from sklearn.feature_extraction import text
 
 stemmer = SnowballStemmer('english')
 
-
+# Custom class that adds stemmer to sklearn's CountVectorizer
 class StemmedCountVectorizer(CountVectorizer):
     def build_analyzer(self):
         analyzer = super(StemmedCountVectorizer, self).build_analyzer()
@@ -30,13 +30,13 @@ def read_data():
     df = pd.read_excel(os.path.join('..',settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
-
+# For classifier, create "persuasive" = 1 and "non-persuasive" = 0 labels from median split
 def create_variables_with_median_split():
     persuasive_median = df['norm_persuasive'].median()
     df['persuasive_label'] = np.where(df['persuasive'] >= persuasive_median, 1, 0)
     pass
 
-
+# Vectorize with stemmer, TF-IDF, test-split data, fit Multinomial Bayes
 def fit_classifier():
     my_additional_stop_words = ['__']
     stop_words = text.ENGLISH_STOP_WORDS.union(my_additional_stop_words)
@@ -56,14 +56,18 @@ def fit_classifier():
     null_accuracy = max(y_test.mean(), 1 - y_test.mean())
     print("Null accuracy is: {}".format(null_accuracy))
 
+    # Create confusion matrix to see misclassified rows
     standard_confusion_matrix(y_test, predicted)
 
+    # Calculate recall and print result
     recall = recall_score(y_test, predicted)
     print("Recall is: {}".format(recall))
 
+    #Calculate precision and print result
     precision = precision_score(y_test, predicted)
     print("Precision is: {}".format(precision))
 
+    #Calculate F1 and print result
     F1 = 2 * (precision * recall) / (precision + recall)
     print("F1 score is: {}".format(F1))
     return count_vect, tfidf_transformer, clf
@@ -88,7 +92,7 @@ def standard_confusion_matrix(y_true, y_pred):
     [[tn, fp], [fn, tp]] = confusion_matrix(y_true, y_pred)
     return np.array([[tp, fp], [fn, tn]])
 
-
+# Print the most informative features that classifier uses to distinguish 'persuasive' from 'not persuasive' talks
 def show_most_informative_features(vectorizer, clf, n=50):
     feature_names = vectorizer.get_feature_names()
     coefs_with_fns = sorted(zip(clf.coef_[0], feature_names))
@@ -99,6 +103,7 @@ def show_most_informative_features(vectorizer, clf, n=50):
         top_words.append((coef_2, fn_2))
         print("\t%.4f\t%-15s\t\t%.4f\t%-15s" % (coef_1, fn_1, coef_2, fn_2))
     top_words_df = pd.DataFrame(top_words, columns=['coefficient', 'word'])
+    # To produce csv output of this function, uncomment the following line
     #top_words_df.to_csv('top-words-persuasive.csv')
     return top_words_df
 
