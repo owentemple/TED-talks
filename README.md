@@ -9,7 +9,7 @@
 An Investigation of Persuasiveness using Natural Language Processing and Machine Learning.
 
 __Abstract:__
-A natural language processing project to reveal linguistic features that predict a persuasive TED Talk. I webscraped every TED Talk transcript and it's metadata from 2006 through 2017 and then used decision trees, random forest regressors, and linear regression to find key predictors of persuasive ratings by viewers. For professionals who need to communicate & influence others, TheodoreSpeaks.com is a data product to provide insights on how to speak to persuade.
+A natural language processing project to reveal linguistic features that predict a persuasive TED Talk. I webscraped every TED Talk transcript and its metadata from 2006 through 2017 and then used decision trees, random forest regressors, and linear regression to find key predictors of persuasive ratings by viewers. For professionals who need to communicate & influence others, TheodoreSpeaks.com is a data product to provide insights on how to speak to persuade.
 
 
 __Results:__
