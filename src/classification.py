@@ -30,7 +30,7 @@ def read_data():
     df = pd.read_excel(os.path.join('..',settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
-# For classifier, create "persuasive" = 1 and "non-persuasive" = 0 labels from median split
+# For classifier, create "persuasive" = 1 and "non-persuasive" = 0 labels for above and below median of persuasive ratings
 def create_variables_with_median_split():
     persuasive_median = df['norm_persuasive'].median()
     df['persuasive_label'] = np.where(df['persuasive'] >= persuasive_median, 1, 0)

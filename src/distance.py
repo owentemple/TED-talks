@@ -14,9 +14,11 @@ def read_data():
     df = pd.read_excel(os.path.join('..',settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
+# Calculates Euclidean distance between linguistic features of any passed in speaker name and all other speakers
 def find_similar_speaker(name):
     numerical = df.select_dtypes(include=['int64','float64'])
     df_normalized = (numerical - numerical.mean()) / numerical.std()
+    # Drops rows not useful for similarity comparison based on linguistic similarity
     df_normalized.drop(['conversation','music','index','languages','comments', 'duration', 'views','persuasive', 'unconvincing', 'inspiring', 'film_date', 'published_date','published_year','AllPunc','Period','Comma','Colon','SemiC','QMark','Exclam','Dash','Quote','Apostro','Parenth','OtherP', 'affect_1h','posemo_1h','negemo_1h', 'anx_1h', 'anger_1h', 'sad_1h', 'affect_2h', 'posemo_2h', 'negemo_2h', 'anx_2h', 'anger_2h', 'sad_2h', 'affect_1q', 'posemo_1q', 'negemo_1q', 'anx_1q', 'anger_1q', 'sad_1q', 'affect_2q', 'posemo_2q', 'negemo_2q', 'anx_2q', 'anger_2q', 'sad_2q', 'affect_3q', 'posemo_3q', 'negemo_3q', 'anx_3q', 'anger_3q', 'sad_3q', 'affect_4q', 'posemo_4q','negemo_4q', 'anx_4q', 'anger_4q','sad_4q','posemo_change_h', 'negemo_change_h','affect_change_h', 'posemo_change_q', 'negemo_change_q', 'affect_change_q'],axis=1,inplace=True)
     speaker_normalized = df_normalized[df["main_speaker"] == name]
     speaker_normalized = speaker_normalized.iloc[0]
