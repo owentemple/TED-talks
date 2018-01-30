@@ -11,14 +11,29 @@ from sklearn import cross_validation
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-
+# Read in the data as a dataframe
 def read_data():
     df = pd.read_excel(os.path.join('..', settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
+# Perform test train split
+def create_test_set(df):
+    predictors = df.columns.tolist()
+    predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
+    X_train, X_test, y_train, y_test = train_test_split(df[predictors], df[settings.TARGET], random_state = 42)
+    return X_train, X_test, y_train, y_test
+
+# Print linear regression summary table for entire training set
+def create_summary(X_train, y_train):
+    X = X_train
+    X2 = sm.add_constant(X)
+    est = sm.OLS(y_train, X2)
+    est2 = est.fit()
+    print(est2.summary())
+
+# Fit a linear model using the predictors and number of cross validation folds set in settings.py
 def cross_validate(df):
     clf = LinearRegression()
-
     predictors = df.columns.tolist()
     predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
     print("Predictors: {}".format(predictors))
@@ -26,21 +41,10 @@ def cross_validate(df):
 
     return predictions
 
+# Calculate mean squared error for the predictions
 def compute_error(target, predictions):
     return mean_squared_error(target, predictions)
 
-def create_test_set(df):
-    predictors = df.columns.tolist()
-    predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
-    X_train, X_test, y_train, y_test = train_test_split(df[predictors], df[settings.TARGET], random_state = 42)
-    return X_train, X_test, y_train, y_test
-
-def create_summary(X_train, y_train):
-    X = X_train
-    X2 = sm.add_constant(X)
-    est = sm.OLS(y_train, X2)
-    est2 = est.fit()
-    print(est2.summary())
 
 if __name__ == "__main__":
     df = read_data()

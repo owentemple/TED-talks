@@ -8,12 +8,13 @@ import pandas as pd
 import statsmodels.api as sm
 from sklearn.linear_model import LinearRegression
 
-
+# Reads in the data as a dataframe
 def read_data():
     df = pd.read_excel(os.path.join('..', settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
-
+# Fits a linear model using features and 'norm_persuasive' ratings specified here (not set in the settings.py script)
+# Prints the summary page to show coefficients, p-values, and R squared
 def create_summary_persuasive(df):
     lr = LinearRegression()
     predictors = ['i', 'negate','anx_1q','posemo_2q','interrog','negemo','risk', 'see', 'money', 'Moral', 'focuspresent', 'quant']
@@ -26,6 +27,8 @@ def create_summary_persuasive(df):
     print(est2.summary())
     pass
 
+# Fits a linear model using features and 'norm_inspiring' ratings specified here (not set in the settings.py script)
+# Prints the summary page to show coefficients, p-values, and R squared
 def create_summary_inspiring(df):
     lr = LinearRegression()
     predictors = ['we','i','social','sad_2q','relig','achieve','power', 'focusfuture', ]

@@ -15,6 +15,8 @@ def read_data():
     df = pd.read_excel(os.path.join('..',settings.PROCESSED_DIR, "all_with_liwc_segmented.xls"), encoding="ISO-8859-1")
     return df
 
+# Fit decision tree regressor using features and response variable set in settings.py
+# Prints feature importances sorted by descending by magnitude
 def sort_important_features(df):
     dt = DecisionTreeRegressor()
     predictors = df.columns.tolist()
@@ -30,7 +32,7 @@ def sort_important_features(df):
     return model
 
 def print_tree(model):
-    # Where to save the figures
+    # Saves the figure of the decision tree in the 'images' folder
     PROJECT_ROOT_DIR = ".."
     IMAGES_PATH = os.path.join(PROJECT_ROOT_DIR, "images")
     path = os.path.join(IMAGES_PATH, "Decision Tree Predicting {}".format(settings.TARGET))

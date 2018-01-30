@@ -7,15 +7,15 @@ from random import randint
 import json
 
 
-# specify the urls of the talks metadata to gather
+# Specify the urls of the talks metadata to gather by pasting in as a list
 urls = [
     'https://www.ted.com/talks/gautam_bhan_a_bold_plan_to_house_100_million_people',
     'https://www.ted.com/talks/nadine_hachach_haram_how_augmented_reality_could_change_the_future_of_surgery'
     ]
 
-
+# Writes scraped data with column names to csv
 def write_it(data_so_far):
-    # open a csv file with append, so old data will not be erased
+    # Open a csv file with append, so old data will not be erased
     with open('TED-metadata.csv', 'a') as csv_file:
         writer = csv.writer(csv_file)
         # The for loop
@@ -24,7 +24,7 @@ def write_it(data_so_far):
             writer.writerow([comments, title, duration, event, film_date, languages, main_speaker, name, num_speaker, published_date, \
                              ratings, related_talks, speaker_occupation, tags, description, url, views, datetime.now()])
 
-
+# Collect variables from Beautiful Soup object and print results
 def gather_metadata(urls):
     data = []
     counter = 0
@@ -74,14 +74,16 @@ def gather_metadata(urls):
         print(url, '\n')
         print(views, '\n')
 
-        # save the data in tuple
+        # Save the data in tuple
         data.append((comments, title, duration, event, film_date, languages, main_speaker, name, num_speaker, published_date, \
             ratings, related_talks, speaker_occupation, tags, description, url, views))
+        # Writes data once three talks have been collected
         counter += 1
         if counter > 3:
             write_it(data)
             counter = 0
             data = []
+        # Sleeps between requests to TED.com to prevent 429 "Too Many Requests" error
         time.sleep(randint(11, 16))
 
     write_it(data)
