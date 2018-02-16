@@ -199,11 +199,11 @@ Text features that predicted higher 'inspiring' ratings by TED.com users:
 - "We" Words  - we, us, our
 - “I” Words - me, mine, I
 
-![image](https://www.filepicker.io/api/file/Q8pinlKTbe6FarVopj0c)
+![image](http://owentemple.com/wp-content/uploads/2018/02/Linguistic-Signature-of-Inspiring-Ratings.png)
 
 Consistent with a Hero's Journey storytelling framework, increased sad words in the 2nd quarter of talks were related to increased inspiring ratings.
 
-![image](https://www.filepicker.io/api/file/oZbfeVcmSMasYRR8BDpd)
+![image](http://owentemple.com/wp-content/uploads/2018/02/Sad-Words-by-Transcript-Quarter-of-Low-and-High-Inspiring-Ratings.png)
 
 
 # Future improvements
