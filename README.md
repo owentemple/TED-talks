@@ -157,7 +157,7 @@ You can also access this "Find a Similar Speaker" tool by visiting [theodorespea
 
 #### Emotion Words Across All Talks
 
-![image](https://www.filepicker.io/api/file/xDcgKi5GSW2AqhsTlBzQ)
+![image](http://owentemple.com/wp-content/uploads/2018/02/average-positive-and-negative-emotion-through-all-talks.png)
 
 
 ### Increased Persuasive Ratings
