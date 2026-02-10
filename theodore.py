@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, flash, jsonify
 import os
 import settings
 import pandas as pd
@@ -109,6 +109,8 @@ def analyze_text():
     description = data[1]
     # Change url subdomain to 'embed' (from 'www') so that video will appear embedded
     url_rx = "https://embed" + data[2][11:]
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(speaker_name=speaker_name, description=description, url_rx=url_rx)
     return render_template('index.html', speaker_name=speaker_name, description=description, url_rx=url_rx)
 
 # Allow user to input text to see classifier prediction of persuasive or not
@@ -118,6 +120,8 @@ def predict_text():
     result = predict_new(speech)
     message = "PERSUASIVE - " if result[0] == 1 else "NOT PERSUASIVE - "
     percentage = str(round(result[1] * 100,2)) + "% Probability of Persuasive Rating"
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(message=message, percentage=percentage)
     return render_template('index.html', message=message, percentage=percentage)
 
 # Allow user to store urls of TED talks to view later

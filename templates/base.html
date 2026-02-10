@@ -84,5 +84,62 @@
         </script>
 
         <script src="{{ url_for('static', filename='js/main.js' ) }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#predict-form').on('submit', function(e){
+                    e.preventDefault();
+                    var $btn = $(this).find('input[type=submit]');
+                    $btn.prop('disabled', true).val('Analyzing...');
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        headers: {'X-Requested-With': 'XMLHttpRequest'},
+                        success: function(data){
+                            $('#predict-results').html(
+                                '<table><tbody>' +
+                                '<thead><th>Prediction</th></thead>' +
+                                '<tr><td>' + data.message + '</td><td>&nbsp;</td><td>' + data.percentage + '</td></tr>' +
+                                '</tbody></table>'
+                            );
+                        },
+                        error: function(){
+                            $('#predict-results').html('<p>An error occurred. Please try again.</p>');
+                        },
+                        complete: function(){
+                            $btn.prop('disabled', false).val('Submit');
+                        }
+                    });
+                });
+
+                $('#speaker-form').on('submit', function(e){
+                    e.preventDefault();
+                    var $btn = $(this).find('input[type=submit]');
+                    $btn.prop('disabled', true).val('Searching...');
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        headers: {'X-Requested-With': 'XMLHttpRequest'},
+                        success: function(data){
+                            $('#speaker-results').html(
+                                '<h3>Talk with Most Similar Linguistic Style and Content</h3>' +
+                                '<p>' + data.speaker_name + '</p>' +
+                                '<p>' + data.description + '</p>' +
+                                '<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%">' +
+                                '<iframe src="' + data.url_rx + '" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe>' +
+                                '</div></div>'
+                            );
+                        },
+                        error: function(){
+                            $('#speaker-results').html('<p>Speaker not found. Please check the name and try again.</p>');
+                        },
+                        complete: function(){
+                            $btn.prop('disabled', false).val('Submit');
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

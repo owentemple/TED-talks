@@ -145,7 +145,7 @@ Theodore Speaks - Public Speaking Insights
                                 The purpose of this tool is to predict the persuasiveness of a text. It uses an embedded Multinomial Naive Bayes classifier.
                                 Put the text of a speech in the field below, and have it predict whether the text is persuasive.
                             </p>
-                            <form action="{{ url_for('predict_text') }}" method="post">
+                            <form id="predict-form" action="{{ url_for('predict_text') }}" method="post">
                                 <textarea name="text2" cols="30" rows="5"></textarea>
                                 <input type="submit">
                             </form>
@@ -153,7 +153,7 @@ Theodore Speaks - Public Speaking Insights
 
                         <div class="d_cell">
                             <h2>Results</h2>
-                            <div id="results">
+                            <div id="predict-results">
                                 {% if message is not none %}
                                 <table>
                                     <tbody>
@@ -185,7 +185,7 @@ Theodore Speaks - Public Speaking Insights
                                 It uses an embedded Euclidean distance calculation to determine similarity.
                                 Put a TED Talk speaker's name in the field below, and the tool will find a similar talk.
                             </p>
-                            <form action="{{ url_for('analyze_text') }}" method="post">
+                            <form id="speaker-form" action="{{ url_for('analyze_text') }}" method="post">
                                 <textarea name="text1" cols="30" rows="5"></textarea>
                                 <input type="submit">
                             </form>
@@ -193,7 +193,7 @@ Theodore Speaks - Public Speaking Insights
 
                         <div class="d_cell">
                             <h2>Results</h2>
-                            <div id="results">
+                            <div id="speaker-results">
                                 {% if data is not none %}
                                             <h3>Talk with Most Similar Linguistic Style and Content</h3>
                                             <p>{{ speaker_name }}</p>
