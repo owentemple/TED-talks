@@ -1,0 +1,23 @@
+# TED-talks — DIRECT dependencies (intent). Edit this file, not requirements.txt.
+#
+# requirements.txt is the generated LOCKFILE: fully pinned, including transitive
+# packages, targeting the Railway deploy environment (py3.11 / linux per runtime.txt).
+# Railway runs `pip install -r requirements.txt` in ITS OWN builder, which has none
+# of the local hardening in ~/.config/{uv/uv.toml,pip/pip.conf} — so pinning here is
+# the only thing standing between a redeploy and a freshly-resolved dependency tree.
+#
+# Regenerate after editing (from this directory):
+#   uv pip compile requirements.in --python-version 3.11 --python-platform linux \
+#     -o requirements.txt
+# uv applies the global 7-day cooldown (~/.config/uv/uv.toml), so the pins it
+# produces are never a just-published version.
+#
+# Added 2026-09-02. See Code/package-vetting-checklist.md §0.
+
+flask>=3.0,<4
+gunicorn>=21,<24
+pandas>=2,<3
+numpy>=1.24,<3
+scikit-learn>=1.3,<2
+nltk>=3.8,<4
+scipy>=1.10,<2
